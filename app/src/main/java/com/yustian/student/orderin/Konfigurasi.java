@@ -7,6 +7,8 @@ public class Konfigurasi {
             "http://192.168.43.94/orderin/tampilsemua.php";
     public static final String URL_GET_CON =
             "http://192.168.43.94/orderin/tampil.php?id=";
+    public static final String URL_GET_CON_MN =
+            "http://192.168.43.94/orderin/tampilmenu.php?id=";
     public static final String URL_UPDATE_CON =
             "http://192.168.43.94/orderin/ubah.php";
     public static final String URL_DELETE_CON =

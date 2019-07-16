@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
                     } else {
-                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+                        Intent i = new Intent(getApplicationContext(), SearchActivity.class);
                         i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
                         startActivity(i);
                     }
