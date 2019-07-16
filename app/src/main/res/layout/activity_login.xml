@@ -32,17 +32,19 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="34.6dp"
+            android:layout_marginTop="54.7dp"
+            android:layout_marginRight="33.6dp"
             android:background="#00000000"
             android:hint="Username"
-            android:layout_marginTop="54.7dp"
-            android:layout_marginLeft="34.6dp"
-            android:layout_marginRight="33.6dp"
-            android:textColorHint="#ffffff"
             android:inputType="text"
             android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="14.4sp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -52,16 +54,17 @@
             android:layout_marginTop="6.5dp"/>
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="34.6dp"
             android:layout_marginTop="33.6dp"
+            android:layout_marginRight="33.6dp"
             android:background="#00000000"
             android:hint="Password"
-            android:layout_marginLeft="34.6dp"
-            android:layout_marginRight="33.6dp"
-            android:textColorHint="#ffffff"
             android:inputType="textPassword"
             android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             android:textSize="14.4sp" />
         <View
             android:layout_width="match_parent"
@@ -72,7 +75,7 @@
             android:layout_marginTop="6.5dp"/>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="34.6dp"
@@ -93,18 +96,20 @@
         android:layout_marginBottom="28.1dp"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"
-            android:textSize="14.4sp"
-            android:textColor="#ffffff"/>
+            android:text="Belum punya akun ?"
+            android:textColor="#ffffff"
+            android:textSize="14.4sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
             android:layout_marginLeft="5dp"
-            android:textSize="14.4sp"
-            android:textColor="#d22532"/>
+            android:text="Daftar"
+            android:textColor="#d22532"
+            android:textSize="14.4sp" />
     </LinearLayout>
 </RelativeLayout>

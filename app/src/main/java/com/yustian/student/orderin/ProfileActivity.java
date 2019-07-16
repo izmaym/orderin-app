@@ -4,17 +4,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    TextView username;
+    Button btnSearch;
+    EditText cari;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-    }
 
-    public void Search(View view) {
-        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-        startActivity(intent);
+        btnSearch = (Button)findViewById(R.id.btnSearch);
+        cari = (EditText)findViewById(R.id.cari);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String someVariable = extras.getString("username");
+            username = (TextView)findViewById(R.id.username);
+            username.setText("Selamat Datang, "+someVariable);
+
+            btnSearch.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.putExtra("cari", cari.getText().toString());
+                    startActivity(i);
+                }
+            });
+        }
     }
 }
