@@ -31,9 +31,14 @@ public class ProfileActivity extends AppCompatActivity {
 
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    i.putExtra("cari", cari.getText().toString());
-                    startActivity(i);
+                    if (cari.getText().toString().equals("")) {
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                    } else {
+                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+                        i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
+                        startActivity(i);
+                    }
                 }
             });
         }

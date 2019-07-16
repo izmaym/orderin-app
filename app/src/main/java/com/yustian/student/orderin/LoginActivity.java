@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnLogin;
+    Button btnLogin, btnRegister;
     EditText username, password;
 
     @Override
@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -30,12 +31,18 @@ public class LoginActivity extends AppCompatActivity {
                     i.putExtra("username", username.getText().toString());
                     startActivity(i);
                 } else if(username.getText().toString().equals("admin") && password.getText().toString().equals("")) {
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    i.putExtra("username", username.getText().toString());
+                    Intent i = new Intent(getApplicationContext(), AdminActivity.class);
                     startActivity(i);
                 } else {
                     Toast.makeText(getApplicationContext(), "Username atau Password Anda Salah", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(i);
             }
         });
     }

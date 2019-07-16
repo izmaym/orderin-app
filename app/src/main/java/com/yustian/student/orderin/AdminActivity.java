@@ -20,14 +20,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class AdminActivity extends AppCompatActivity implements ListView.OnItemClickListener {
     private ListView listView;
     private String JSON_STRING;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin);
         listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(this);
         getJSON();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                MainActivity.this, list, R.layout.activity_list_view,
+                AdminActivity.this, list, R.layout.activity_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(AdminActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -95,5 +95,26 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         String empId = map.get(Konfigurasi.TAG_ID).toString();
         intent.putExtra(Konfigurasi.CON_ID,empId);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_read) {
+            Intent iread = new Intent(this, AdminActivity.class);
+            startActivity(iread);
+            return true;
+        } else if (id == R.id.action_create) {
+            Intent icreate = new Intent(this, CreateActivity.class);
+            startActivity(icreate);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
