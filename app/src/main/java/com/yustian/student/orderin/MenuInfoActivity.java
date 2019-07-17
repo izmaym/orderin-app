@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -20,25 +21,22 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class SearchActivity extends AppCompatActivity implements
+public class MenuInfoActivity extends AppCompatActivity implements
         View.OnClickListener{
-    private EditText editTextName;
-    private EditText editTextNumber;
-    private Button buttonUpdate;
+    private TextView editTextName;
+    private TextView editTextNumber;
     private Button buttonDelete;
     private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_menu_info);
         Intent intent = getIntent();
         id = intent.getStringExtra(Konfigurasi.CON_ID);
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextNumber = (EditText) findViewById(R.id.editTextNumber);
-        buttonUpdate = (Button) findViewById(R.id.buttonUpdate);
+        editTextName = (TextView) findViewById(R.id.editTextName);
+        editTextNumber = (TextView) findViewById(R.id.editTextNumber);
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
-        buttonUpdate.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
         getContact();
     }
@@ -49,7 +47,7 @@ public class SearchActivity extends AppCompatActivity implements
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading =
-                        ProgressDialog.show(SearchActivity.this,"Fetching...","Wait...",false,false);
+                        ProgressDialog.show(MenuInfoActivity.this,"Fetching...","Wait...",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -80,51 +78,21 @@ public class SearchActivity extends AppCompatActivity implements
             e.printStackTrace();
         }
     }
-    private void updateContact(){
-        final String name = editTextName.getText().toString().trim();
-        final String number = editTextNumber.getText().toString().trim();
-        class UpdateContact extends AsyncTask<Void,Void,String>{
-            ProgressDialog loading;
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                loading =
-                        ProgressDialog.show(SearchActivity.this,"Updating...","Wait...",false,false);
-            }
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                loading.dismiss();
-                Toast.makeText(SearchActivity.this,s,Toast.LENGTH_LONG).show();
-            }
-            @Override
-            protected String doInBackground(Void... params) {
-                HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(Konfigurasi.KEY_CON_ID,id);
-                hashMap.put(Konfigurasi.KEY_CON_NAME,name);
-                hashMap.put(Konfigurasi.KEY_CON_NUMBER,number);
-                RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(Konfigurasi.URL_UPDATE_CON,hashMap);
-                return s;
-            }
-        }
-        UpdateContact ue = new UpdateContact();
-        ue.execute();
-    }
+
     private void deleteContact(){
         class DeleteContact extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(SearchActivity.this, "Updating...",
+                loading = ProgressDialog.show(MenuInfoActivity.this, "Updating...",
                         "Wait...", false, false);
             }
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(SearchActivity.this, s, Toast.LENGTH_LONG).show();
+                Toast.makeText(MenuInfoActivity.this, s, Toast.LENGTH_LONG).show();
             }
             @Override
             protected String doInBackground(Void... params) {
@@ -145,7 +113,7 @@ public class SearchActivity extends AppCompatActivity implements
                     public void onClick(DialogInterface arg0, int arg1) {
                         deleteContact();
                         startActivity(new
-                                Intent(SearchActivity.this,MainActivity.class));
+                                Intent(MenuInfoActivity.this,MainActivity.class));
                     }
                 });
         alertDialogBuilder.setNegativeButton("Tidak",
@@ -157,11 +125,9 @@ public class SearchActivity extends AppCompatActivity implements
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
+
     @Override
     public void onClick(View v) {
-        if(v == buttonUpdate){
-            updateContact();
-        }
         if(v == buttonDelete){
             confirmDeleteContact();
         }
