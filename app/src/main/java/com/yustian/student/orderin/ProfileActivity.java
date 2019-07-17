@@ -1,6 +1,8 @@
 package com.yustian.student.orderin;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,9 +12,13 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView username;
+    TextView txt_username;
     Button btnSearch;
     EditText cari;
+    String username;
+    SharedPreferences sharedpreferences;
+
+    public static final String TAG_USERNAME = "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +27,16 @@ public class ProfileActivity extends AppCompatActivity {
 
         btnSearch = (Button)findViewById(R.id.btnSearch);
         cari = (EditText)findViewById(R.id.cari);
+        txt_username = (TextView)findViewById(R.id.txt_username);
+
+        sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
+
+        username = getIntent().getStringExtra(TAG_USERNAME);
+
+        txt_username.setText("Selamat Datang, "+username);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String someVariable = extras.getString("username");
-            username = (TextView)findViewById(R.id.username);
-            username.setText("Selamat Datang, "+someVariable);
-
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (cari.getText().toString().equals("")) {

@@ -20,7 +20,7 @@
             android:layout_marginTop="44.2dp">
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/txt_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="13.4dp"

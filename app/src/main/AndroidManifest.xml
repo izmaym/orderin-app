@@ -3,14 +3,19 @@
     package="com.yustian.student.orderin">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".app.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ConfirmDetailsActivity" />
         <activity
             android:name=".SplashActivity"
@@ -27,16 +32,16 @@
         <activity
             android:name=".MenuInfoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CreateActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".AdminActivity" />
+        <activity android:name=".Register" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

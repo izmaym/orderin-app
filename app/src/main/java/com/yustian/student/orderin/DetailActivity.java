@@ -137,14 +137,14 @@ public class DetailActivity extends AppCompatActivity implements
     }
     private void confirmDeleteContact(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Apakah Kamu Yakin Ingin Menghapus Contact ini?");
+        alertDialogBuilder.setMessage("Apakah Kamu Yakin Ingin Menghapus Menu ini?");
                 alertDialogBuilder.setPositiveButton("Ya",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
                                 deleteContact();
                                 startActivity(new
-                                        Intent(DetailActivity.this,MainActivity.class));
+                                        Intent(DetailActivity.this, MainActivity.class));
                             }
                         });
         alertDialogBuilder.setNegativeButton("Tidak",

@@ -67,7 +67,7 @@ public class CreateActivity extends AppCompatActivity implements
             addContact();
         }
         if(v == buttonView){
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
     @Override

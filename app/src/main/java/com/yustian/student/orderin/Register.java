@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     ProgressDialog pDialog;
     Button btn_register, btn_login;
@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String url = Server.URL + "register.php";
 
-    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private static final String TAG = Register.class.getSimpleName();
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registerbak);
+        setContentView(R.layout.register);
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent = new Intent(Register.this, LoginActivity.class);
                 finish();
                 startActivity(intent);
             }
@@ -179,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        intent = new Intent(Register.this, LoginActivity.class);
         finish();
         startActivity(intent);
     }
