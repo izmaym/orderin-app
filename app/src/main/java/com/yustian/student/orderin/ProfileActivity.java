@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(i);
                     } else {
-                        Intent i = new Intent(getApplicationContext(), SearchActivity.class);
+                        Intent i = new Intent(getApplicationContext(), MenuInfoActivity.class);
                         i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
                         startActivity(i);
                     }
