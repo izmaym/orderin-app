@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Server.URL + "register.php";
+    private String url = Server.URL + "activity_register.php";
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registerbak);
+        setContentView(R.layout.activity_register);
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
@@ -100,14 +100,14 @@ public class RegisterActivity extends AppCompatActivity {
     private void checkRegister(final String username, final String password, final String confirm_password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Register ...");
+        pDialog.setMessage("RegisterActivity ...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Register Response: " + response.toString());
+                Log.e(TAG, "RegisterActivity Response: " + response.toString());
                 hideDialog();
 
                 try {
@@ -117,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
                     // Check for error node in json
                     if (success == 1) {
 
-                        Log.e("Successfully Register!", jObj.toString());
+                        Log.e("Successfully RegisterActivity!", jObj.toString());
 
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();

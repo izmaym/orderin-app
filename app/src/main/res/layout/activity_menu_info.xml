@@ -8,21 +8,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MenuInfoActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextName" />
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextNumber" />
+        <TextView
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/editTextTable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="No Meja" />
+        <TextView
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="No Meja" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonAdd"

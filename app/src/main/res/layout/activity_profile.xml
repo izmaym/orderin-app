@@ -23,7 +23,7 @@
                 android:id="@+id/txt_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13.4dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:text="Hi, John"
                 android:textColor="#ffffff"

@@ -20,13 +20,6 @@
             android:layout_gravity="center"
             android:background="@mipmap/ic_launcher" />
 
-        <View
-            android:id="@+id/View1"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="#448AFF" />
-
         <TextView
             android:id="@+id/TextView2"
             android:layout_width="wrap_content"
@@ -80,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
             android:textColor="#fff"
             android:text="Register"
             android:background="@color/colorAccent"

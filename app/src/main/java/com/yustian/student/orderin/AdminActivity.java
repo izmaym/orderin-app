@@ -22,6 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -212,7 +213,7 @@ public class AdminActivity extends AppCompatActivity
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ORD);
+                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ALL_ORD);
                 return s;
             }
         }
@@ -226,7 +227,7 @@ public class AdminActivity extends AppCompatActivity
         Intent intent = new Intent(this, DetailActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Konfigurasi.TAG_ID).toString();
-        intent.putExtra(Konfigurasi.CON_ID,empId);
+        intent.putExtra(Konfigurasi.CON_ID, empId);
         startActivity(intent);
     }
 }
