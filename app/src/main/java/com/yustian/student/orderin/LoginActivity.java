@@ -25,9 +25,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Kuncoro on 03/24/2017.
- */
 public class LoginActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
@@ -84,13 +81,20 @@ public class LoginActivity extends AppCompatActivity {
         username = sharedpreferences.getString(TAG_USERNAME, null);
 
         if (session) {
-            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-            intent.putExtra(TAG_ID, id);
-            intent.putExtra(TAG_USERNAME, username);
-            finish();
-            startActivity(intent);
+            if(username.equals("admin")) {
+                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_USERNAME, username);
+                finish();
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_USERNAME, username);
+                finish();
+                startActivity(intent);
+            }
         }
-
 
         btn_login.setOnClickListener(new View.OnClickListener() {
 

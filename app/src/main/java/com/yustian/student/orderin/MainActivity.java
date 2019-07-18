@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,9 +37,9 @@ public class MainActivity extends AppCompatActivity
     private ListView listView;
     private String JSON_STRING;
 
-    Button btn_logout;
     String id;
     SharedPreferences sharedpreferences;
+    String username;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
@@ -68,31 +69,20 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Session
+        sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
+        id = getIntent().getStringExtra(TAG_ID);
+        username = getIntent().getStringExtra(TAG_USERNAME);
+
+        // Mengambil username
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.txt_username);
+        navUsername.setText(username);
+
+        // Mengambil data menu
         listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(this);
         getJSON();
-
-        btn_logout = (Button) findViewById(R.id.btn_logout);
-
-        sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                // update login session ke FALSE dan mengosongkan nilai id dan username
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putBoolean(LoginActivity.session_status, false);
-                editor.putString(TAG_ID, null);
-                editor.putString(TAG_USERNAME, null);
-                editor.commit();
-
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                finish();
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -153,6 +143,16 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_logout) {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(LoginActivity.session_status, false);
+            editor.putString(TAG_ID, null);
+            editor.putString(TAG_USERNAME, null);
+            editor.commit();
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            finish();
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -217,10 +217,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, DetailActivity.class);
+        Intent intent = new Intent(this, MenuInfoActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Konfigurasi.TAG_ID).toString();
-        intent.putExtra(Konfigurasi.CON_ID,empId);
+        intent.putExtra(Konfigurasi.CON_ID, empId);
         startActivity(intent);
     }
 }

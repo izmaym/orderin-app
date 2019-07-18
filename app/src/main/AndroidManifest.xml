@@ -14,8 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ConfirmDetailsActivity" />
         <activity
             android:name=".SplashActivity"
@@ -37,7 +42,6 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CreateActivity" />
         <activity android:name=".DetailActivity" />
-        <activity android:name=".AdminActivity" />
         <activity android:name=".Register" />
         <activity
             android:name=".LoginActivity"

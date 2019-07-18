@@ -55,7 +55,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET_CON_MN,id);
+                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET_CON,id);
                 return s;
             }
         }

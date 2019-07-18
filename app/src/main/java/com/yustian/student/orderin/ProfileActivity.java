@@ -15,10 +15,11 @@ public class ProfileActivity extends AppCompatActivity {
     TextView txt_username;
     Button btnSearch;
     EditText cari;
-    String username;
+    String id, username;
     SharedPreferences sharedpreferences;
 
-    public static final String TAG_USERNAME = "username";
+    public final static String TAG_USERNAME = "username";
+    public final static String TAG_ID = "id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         txt_username = (TextView)findViewById(R.id.txt_username);
 
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-
+        id = getIntent().getStringExtra(TAG_ID);
         username = getIntent().getStringExtra(TAG_USERNAME);
 
         txt_username.setText("Selamat Datang, "+username);
@@ -41,6 +42,8 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (cari.getText().toString().equals("")) {
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        i.putExtra(TAG_ID, id);
+                        i.putExtra(TAG_USERNAME, username);
                         startActivity(i);
                     } else {
                         Intent i = new Intent(getApplicationContext(), MenuInfoActivity.class);
