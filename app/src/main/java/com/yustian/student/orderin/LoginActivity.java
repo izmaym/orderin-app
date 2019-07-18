@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
                         String username = jObj.getString(TAG_USERNAME);
                         String id = jObj.getString(TAG_ID);
 
-                        Log.e("Successfully LoginActivity!", jObj.toString());
+                        Log.e("Successfully Login", jObj.toString());
 
                         Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
 
@@ -166,12 +166,22 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString(TAG_USERNAME, username);
                         editor.commit();
 
-                        // Memanggil main activity
-                        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                        intent.putExtra(TAG_ID, id);
-                        intent.putExtra(TAG_USERNAME, username);
-                        finish();
-                        startActivity(intent);
+                        // Jika username admin, masuk Admin Dashboard
+                        if(username.equals("admin")) {
+                            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_USERNAME, username);
+                            finish();
+                            startActivity(intent);
+                        } else {
+                            // Memanggil main activity
+                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_USERNAME, username);
+                            finish();
+                            startActivity(intent);
+                        }
+
                     } else {
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
