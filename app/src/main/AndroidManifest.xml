@@ -34,7 +34,7 @@
             android:name=".MenuInfoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CreateActivity" />
         <activity android:name=".DetailActivity" />

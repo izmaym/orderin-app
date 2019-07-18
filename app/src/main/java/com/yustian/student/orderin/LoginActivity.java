@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
                 startActivity(intent);
             } else {
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_USERNAME, username);
                 finish();
@@ -177,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             // Memanggil main activity
-                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);
                             finish();

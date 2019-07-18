@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class ProfileActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     TextView txt_username;
     Button btnSearch;
@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_welcome);
 
         btnSearch = (Button)findViewById(R.id.btnSearch);
         cari = (EditText)findViewById(R.id.cari);
