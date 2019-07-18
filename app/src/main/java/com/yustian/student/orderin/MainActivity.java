@@ -164,23 +164,29 @@ public class MainActivity extends AppCompatActivity
         JSONObject jsonObject = null;
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,
                 String>>();
+
         try {
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
+
                 String id = jo.getString(Konfigurasi.TAG_ID);
                 String name = jo.getString(Konfigurasi.TAG_NAME);
                 String number = jo.getString(Konfigurasi.TAG_NUMBER);
+
                 HashMap<String,String> contacts = new HashMap<>();
+
                 contacts.put(Konfigurasi.TAG_ID,id);
                 contacts.put(Konfigurasi.TAG_NAME,name);
                 contacts.put(Konfigurasi.TAG_NUMBER,number);
+
                 list.add(contacts);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         ListAdapter adapter = new SimpleAdapter(
                 MainActivity.this, list, R.layout.activity_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
@@ -194,7 +200,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(MainActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
             }
             @Override
             protected void onPostExecute(String s) {

@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/editTextNumber" />
 
+    <EditText
+        android:id="@+id/editTextTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="No Meja" />
+
     <Button
         android:id="@+id/buttonAdd"
         style="@style/ButtonGeneral"
