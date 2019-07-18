@@ -47,6 +47,7 @@ public class AdminActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -168,10 +169,13 @@ public class AdminActivity extends AppCompatActivity
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
+
                 String id = jo.getString(Konfigurasi.TAG_ID);
                 String name = jo.getString(Konfigurasi.TAG_NAME);
                 String number = jo.getString(Konfigurasi.TAG_NUMBER);
+
                 HashMap<String,String> contacts = new HashMap<>();
+
                 contacts.put(Konfigurasi.TAG_ID,id);
                 contacts.put(Konfigurasi.TAG_NAME,name);
                 contacts.put(Konfigurasi.TAG_NUMBER,number);
@@ -190,11 +194,13 @@ public class AdminActivity extends AppCompatActivity
     private void getJSON(){
         class GetJSON extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading = ProgressDialog.show(AdminActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
             }
+
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
@@ -202,10 +208,11 @@ public class AdminActivity extends AppCompatActivity
                 JSON_STRING = s;
                 showContact();
             }
+
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ALL);
+                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ORD);
                 return s;
             }
         }
