@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg"
+    android:background="@drawable/homebg"
     tools:context=".WelcomeActivity">
 
     <LinearLayout
@@ -101,11 +101,4 @@
             android:textColor="#ffffff"
             android:textSize="14.4sp" />
     </LinearLayout>
-
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottombar" />
 </RelativeLayout>
