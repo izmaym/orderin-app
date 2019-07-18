@@ -27,14 +27,14 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
-    Button btn_register, btn_login;
+    Button btn_register;
     EditText txt_username, txt_password, txt_confirm_password;
     Intent intent;
 
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Server.URL + "activity_register.php";
+    private String url = Server.URL + "register.php";
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
@@ -59,22 +59,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
 
-        btn_login = (Button) findViewById(R.id.btn_login);
         btn_register = (Button) findViewById(R.id.btn_register);
         txt_username = (EditText) findViewById(R.id.txt_username);
         txt_password = (EditText) findViewById(R.id.txt_password);
         txt_confirm_password = (EditText) findViewById(R.id.txt_confirm_password);
-
-        btn_login.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                finish();
-                startActivity(intent);
-            }
-        });
 
         btn_register.setOnClickListener(new View.OnClickListener() {
 

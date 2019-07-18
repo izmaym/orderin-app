@@ -19,15 +19,24 @@
             android:orientation="horizontal"
             android:layout_marginTop="44.2dp">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profile"
+                android:layout_marginLeft="24dp"
+                app:civ_border_color="#FF000000" />
+
             <TextView
                 android:id="@+id/txt_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
                 android:text="Hi, John"
+                android:textSize="19.2sp"
                 android:textColor="#ffffff"
-                android:textSize="19.2sp" />
+                android:layout_marginLeft="13.4dp"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
 
         <TextView
@@ -44,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/rectangle_2"
             android:layout_marginTop="41dp"
             android:layout_marginLeft="22.1dp"
             android:layout_marginRight="21.1dp"
@@ -54,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12.5dp"
+                android:src="@drawable/ic_search_black_24dp"
                 android:tint="#d0d0d0"/>
 
             <EditText
@@ -64,7 +75,7 @@
                 android:layout_weight="1"
                 android:background="#00000000"
                 android:hint="Cari menu hari ini..."
-                android:textColor="#ffffff"
+                android:textColor="#000"
                 android:textColorHint="#9b9b9b"
                 android:textSize="14.4sp" />
 
@@ -72,6 +83,7 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_marginRight="15.4dp"
+                android:src="@drawable/ic_places"
                 android:tint="#d22532"/>
         </LinearLayout>
 
@@ -84,10 +96,16 @@
             android:layout_marginRight="21.1dp"
             android:background="@color/colorAccent"
             android:gravity="center_horizontal"
-            android:onClick="Search"
             android:padding="16dp"
             android:text="Search"
             android:textColor="#ffffff"
             android:textSize="14.4sp" />
     </LinearLayout>
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_tabXmlResource="@xml/bottombar" />
 </RelativeLayout>

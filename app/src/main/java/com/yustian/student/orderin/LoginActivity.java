@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,7 +29,8 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     ProgressDialog pDialog;
-    Button btn_register, btn_login;
+    Button btn_login;
+    TextView btn_register;
     EditText txt_username, txt_password;
     Intent intent;
 
@@ -70,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_register = (Button) findViewById(R.id.btn_register);
+        btn_register = (TextView) findViewById(R.id.btn_register);
         txt_username = (EditText) findViewById(R.id.txt_username);
         txt_password = (EditText) findViewById(R.id.txt_password);
 
