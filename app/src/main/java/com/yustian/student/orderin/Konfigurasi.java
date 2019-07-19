@@ -4,21 +4,17 @@ public class Konfigurasi {
     // API URL
     public static final String URL = "http://192.168.43.94/orderin/";
 
-    // Create
-    public static final String URL_ADD = URL + "tambah.php";
-    public static final String URL_ORDER = URL + "tambahpesanan.php";
-
-    // Read
-    public static final String URL_GET_CON = URL + "tampilmenu.php?id=";
+    // API MENU
     public static final String URL_GET_ALL = URL + "tampilsemuamenu.php";
-    public static final String URL_GET_ORD = URL + "tampilpesanan.php?id=";
-    public static final String URL_GET_ALL_ORD = URL + "tampilsemuapesanan.php";
-
-    // Update
-    public static final String URL_UPDATE_CON = URL + "ubah.php";
-
-    // Delete
+    public static final String URL_GET_CON = URL + "tampilmenu.php?id=";
+    public static final String URL_ADD = URL + "tambahmenu.php";
+    public static final String URL_UPDATE_CON = URL + "ubahmenu.php";
     public static final String URL_DELETE_CON = URL + "hapusmenu.php?id=";
+
+    // API PESANAN
+    public static final String URL_GET_ALL_ORD = URL + "tampilsemuapesanan.php";
+    public static final String URL_GET_ORD = URL + "tampilpesanan.php?id=";
+    public static final String URL_ORDER = URL + "tambahpesanan.php";
     public static final String URL_DELETE_ORD = URL + "hapuspesanan.php?id=";
 
     // KEY
