@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
-
-
     <LinearLayout
         android:orientation="vertical"
-        android:background="@drawable/loginbg"
+        android:background="@drawable/homebg"
         android:weightSum="10"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
