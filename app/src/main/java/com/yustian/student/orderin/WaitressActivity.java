@@ -22,7 +22,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AdminActivity extends AppCompatActivity
+public class WaitressActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, android.widget.ListView.OnItemClickListener {
 
     private android.widget.ListView listView;
@@ -47,7 +46,7 @@ public class AdminActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_waitress);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,7 +113,7 @@ public class AdminActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_read) {
-            Intent iread = new Intent(this, AdminActivity.class);
+            Intent iread = new Intent(this, WaitressActivity.class);
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {
@@ -149,7 +148,7 @@ public class AdminActivity extends AppCompatActivity
             editor.putString(TAG_USERNAME, null);
             editor.commit();
 
-            Intent intent = new Intent(AdminActivity.this, LoginActivity.class);
+            Intent intent = new Intent(WaitressActivity.this, LoginActivity.class);
             finish();
             startActivity(intent);
         }
@@ -184,7 +183,7 @@ public class AdminActivity extends AppCompatActivity
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                AdminActivity.this, list, R.layout.activity_list_view,
+                WaitressActivity.this, list, R.layout.activity_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
@@ -197,7 +196,7 @@ public class AdminActivity extends AppCompatActivity
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(AdminActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(WaitressActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
             }
 
             @Override

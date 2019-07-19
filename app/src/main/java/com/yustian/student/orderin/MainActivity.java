@@ -18,7 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.action_read) {
-            Intent iread = new Intent(this, AdminActivity.class);
+            Intent iread = new Intent(this, WaitressActivity.class);
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {

@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (session) {
             if(username.equals("admin")) {
-                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_USERNAME, username);
                 finish();
@@ -170,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         // Jika username admin, masuk Admin Dashboard
                         if(username.equals("admin")) {
-                            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);
                             finish();
