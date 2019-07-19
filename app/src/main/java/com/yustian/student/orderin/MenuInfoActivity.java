@@ -87,7 +87,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             String number = c.getString(Konfigurasi.TAG_NUMBER);
 
             editTextName.setText(name);
-            editTextNumber.setText("Rp. "+number);
+            editTextNumber.setText(number);
         } catch (JSONException e) {
             e.printStackTrace();
         }

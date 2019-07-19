@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -22,8 +23,8 @@ import java.util.HashMap;
 
 public class DetailActivity extends AppCompatActivity implements
         View.OnClickListener{
-    private EditText editTextName;
-    private EditText editTextNumber;
+    private TextView editTextName;
+    private TextView editTextNumber;
     private Button buttonDelete;
     private String id;
 
@@ -34,8 +35,8 @@ public class DetailActivity extends AppCompatActivity implements
         Intent intent = getIntent();
 
         id = intent.getStringExtra(Konfigurasi.CON_ID);
-        editTextName = (EditText) findViewById(R.id.editTextName);
-        editTextNumber = (EditText) findViewById(R.id.editTextNumber);
+        editTextName = (TextView) findViewById(R.id.editTextName);
+        editTextNumber = (TextView) findViewById(R.id.editTextNumber);
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
         buttonDelete.setOnClickListener(this);
 

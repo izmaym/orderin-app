@@ -2,22 +2,24 @@ package com.yustian.student.orderin;
 
 public class Konfigurasi {
     // API URL
+    public static final String URL = "http://192.168.43.94/orderin/";
+
     // Create
-    public static final String URL_ADD = "http://192.168.43.94/orderin/tambah.php";
-    public static final String URL_ORDER = "http://192.168.43.94/orderin/tambahpesanan.php";
+    public static final String URL_ADD = URL + "tambah.php";
+    public static final String URL_ORDER = URL + "tambahpesanan.php";
 
     // Read
-    public static final String URL_GET_CON = "http://192.168.43.94/orderin/tampilmenu.php?id=";
-    public static final String URL_GET_ALL = "http://192.168.43.94/orderin/tampilsemuamenu.php";
-    public static final String URL_GET_ORD = "http://192.168.43.94/orderin/tampilpesanan.php?id=";
-    public static final String URL_GET_ALL_ORD = "http://192.168.43.94/orderin/tampilsemuapesanan.php";
+    public static final String URL_GET_CON = URL + "tampilmenu.php?id=";
+    public static final String URL_GET_ALL = URL + "tampilsemuamenu.php";
+    public static final String URL_GET_ORD = URL + "tampilpesanan.php?id=";
+    public static final String URL_GET_ALL_ORD = URL + "tampilsemuapesanan.php";
 
     // Update
-    public static final String URL_UPDATE_CON = "http://192.168.43.94/orderin/ubah.php";
+    public static final String URL_UPDATE_CON = URL + "ubah.php";
 
     // Delete
-    public static final String URL_DELETE_CON = "http://192.168.43.94/orderin/hapusmenu.php?id=";
-    public static final String URL_DELETE_ORD = "http://192.168.43.94/orderin/hapuspesanan.php?id=";
+    public static final String URL_DELETE_CON = URL + "hapusmenu.php?id=";
+    public static final String URL_DELETE_ORD = URL + "hapuspesanan.php?id=";
 
     // KEY
     public static final String KEY_CON_ID = "id";
