@@ -117,7 +117,7 @@ public class WaitressActivity extends AppCompatActivity
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, CreateActivity.class);
+            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
             startActivity(icreate);
             return true;
         }
@@ -221,7 +221,7 @@ public class WaitressActivity extends AppCompatActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, DetailActivity.class);
+        Intent intent = new Intent(this, UserDetailActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Konfigurasi.TAG_ID).toString();
         intent.putExtra(Konfigurasi.CON_ID, empId);

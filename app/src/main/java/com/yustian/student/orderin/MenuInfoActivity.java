@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,7 +66,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET_CON,id);
+                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET,id);
                 return s;
             }
         }
@@ -117,8 +115,8 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(Konfigurasi.KEY_CON_NAME,name);
-                params.put(Konfigurasi.KEY_CON_NUMBER,number);
+                params.put(Konfigurasi.KEY_NAME,name);
+                params.put(Konfigurasi.KEY_NUMBER,number);
                 params.put(Konfigurasi.KEY_CON_TABLE, meja);
                 RequestHandler rh = new RequestHandler();
                 String res = rh.sendPostRequest(Konfigurasi.URL_ORDER, params);

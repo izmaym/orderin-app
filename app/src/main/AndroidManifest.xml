@@ -13,12 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserOrderActivity"></activity>
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".AdminMenuActivity"></activity>
+        <activity android:name=".UserOrderActivity" />
         <activity
             android:name=".WaitressActivity"
-            android:label="@string/title_activity_admin"
+            android:label="@string/title_activity_waitress"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -38,8 +41,9 @@
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".CreateActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".AdminCreateMenuActivity" />
+        <activity android:name=".AdminDetailActivity" />
+        <activity android:name=".UserDetailActivity" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

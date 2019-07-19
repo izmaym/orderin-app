@@ -83,7 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         username = sharedpreferences.getString(TAG_USERNAME, null);
 
         if (session) {
-            if(username.equals("waitress")) {
+            if(username.equals("admin")) {
+                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_USERNAME, username);
+                finish();
+                startActivity(intent);
+            } else if(username.equals("waitress")) {
                 Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_USERNAME, username);
@@ -169,7 +175,13 @@ public class LoginActivity extends AppCompatActivity {
                         editor.commit();
 
                         // Jika username waitress, masuk Admin Dashboard
-                        if(username.equals("waitress")) {
+                        if(username.equals("admin")) {
+                            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_USERNAME, username);
+                            finish();
+                            startActivity(intent);
+                        } else if(username.equals("waitress")) {
                             Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);

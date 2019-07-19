@@ -7,14 +7,14 @@ public class Konfigurasi {
     // Online
     // public static final String URL = "http://orderin2.000webhostapp.com/";
 
-    // API MENU
+    // API Menu
     public static final String URL_GET_ALL = URL + "tampilsemuamenu.php";
     public static final String URL_GET = URL + "tampilmenu.php?id=";
     public static final String URL_ADD = URL + "tambahmenu.php";
     public static final String URL_UPDATE = URL + "ubahmenu.php";
     public static final String URL_DELETE = URL + "hapusmenu.php?id=";
 
-    // API PESANAN
+    // API Pesanan
     public static final String URL_GET_ALL_ORD = URL + "tampilsemuapesanan.php";
     public static final String URL_GET_ORD = URL + "tampilpesanan.php?id=";
     public static final String URL_ORDER = URL + "tambahpesanan.php";

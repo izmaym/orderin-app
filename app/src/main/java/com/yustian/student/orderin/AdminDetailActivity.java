@@ -59,7 +59,7 @@ public class AdminDetailActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET_CON,id);
+                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET,id);
                 return s;
             }
         }
@@ -99,11 +99,11 @@ public class AdminDetailActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(Konfigurasi.KEY_CON_ID,id);
-                hashMap.put(Konfigurasi.KEY_CON_NAME,name);
-                hashMap.put(Konfigurasi.KEY_CON_NUMBER,number);
+                hashMap.put(Konfigurasi.KEY_ID,id);
+                hashMap.put(Konfigurasi.KEY_NAME,name);
+                hashMap.put(Konfigurasi.KEY_NUMBER,number);
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(Konfigurasi.URL_UPDATE_CON,hashMap);
+                String s = rh.sendPostRequest(Konfigurasi.URL_UPDATE,hashMap);
                 return s;
             }
         }
@@ -128,7 +128,7 @@ public class AdminDetailActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_DELETE_CON, id);
+                String s = rh.sendGetRequestParam(Konfigurasi.URL_DELETE, id);
                 return s;
             }
         }
@@ -144,7 +144,7 @@ public class AdminDetailActivity extends AppCompatActivity implements
                             public void onClick(DialogInterface arg0, int arg1) {
                                 deleteContact();
                                 startActivity(new
-                                        Intent(AdminDetailActivity.this,MainActivity.class));
+                                        Intent(AdminDetailActivity.this,AdminMenuActivity.class));
                             }
                         });
         alertDialogBuilder.setNegativeButton("Tidak",
@@ -178,7 +178,7 @@ public class AdminDetailActivity extends AppCompatActivity implements
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, CreateActivity.class);
+            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
             startActivity(icreate);
             return true;
         }

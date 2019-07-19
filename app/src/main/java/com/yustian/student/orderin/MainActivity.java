@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, CreateActivity.class);
+            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
             startActivity(icreate);
             return true;
         }
