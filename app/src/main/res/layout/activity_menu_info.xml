@@ -303,6 +303,12 @@
 
     </ScrollView>
 
+    <EditText
+        android:id="@+id/editTextTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="No Meja" />
+
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="match_parent"
