@@ -1,15 +1,18 @@
 package com.yustian.student.orderin;
 
 public class Konfigurasi {
-    // API URL
+    // Offline
     public static final String URL = "http://192.168.43.94/orderin/";
+
+    // Online
+    // public static final String URL = "http://orderin2.000webhostapp.com/";
 
     // API MENU
     public static final String URL_GET_ALL = URL + "tampilsemuamenu.php";
-    public static final String URL_GET_CON = URL + "tampilmenu.php?id=";
+    public static final String URL_GET = URL + "tampilmenu.php?id=";
     public static final String URL_ADD = URL + "tambahmenu.php";
-    public static final String URL_UPDATE_CON = URL + "ubahmenu.php";
-    public static final String URL_DELETE_CON = URL + "hapusmenu.php?id=";
+    public static final String URL_UPDATE = URL + "ubahmenu.php";
+    public static final String URL_DELETE = URL + "hapusmenu.php?id=";
 
     // API PESANAN
     public static final String URL_GET_ALL_ORD = URL + "tampilsemuapesanan.php";
@@ -17,10 +20,13 @@ public class Konfigurasi {
     public static final String URL_ORDER = URL + "tambahpesanan.php";
     public static final String URL_DELETE_ORD = URL + "hapuspesanan.php?id=";
 
-    // KEY
-    public static final String KEY_CON_ID = "id";
-    public static final String KEY_CON_NAME = "name";
-    public static final String KEY_CON_NUMBER = "number";
+    // KEY Menu
+    public static final String KEY_ID = "id";
+    public static final String KEY_KATEGORI = "id_kategori";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_NUMBER = "number";
+    public static final String KEY_STOK = "stok";
+
     public static final String KEY_CON_TABLE = "id_meja";
 
     // TAG
