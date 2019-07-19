@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DetailActivity extends AppCompatActivity implements
+public class UserDetailActivity extends AppCompatActivity implements
         View.OnClickListener{
     private TextView editTextName;
     private TextView editTextNumber;
@@ -26,7 +26,7 @@ public class DetailActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_user_detail);
         Intent intent = getIntent();
 
         id = intent.getStringExtra(Konfigurasi.CON_ID);
@@ -44,7 +44,7 @@ public class DetailActivity extends AppCompatActivity implements
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading =
-                        ProgressDialog.show(DetailActivity.this,"Fetching...","Wait...",false,false);
+                        ProgressDialog.show(UserDetailActivity.this,"Fetching...","Wait...",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -83,14 +83,14 @@ public class DetailActivity extends AppCompatActivity implements
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(DetailActivity.this, "Updating...",
+                loading = ProgressDialog.show(UserDetailActivity.this, "Updating...",
                         "Wait...", false, false);
             }
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(DetailActivity.this, s, Toast.LENGTH_LONG).show();
+                Toast.makeText(UserDetailActivity.this, s, Toast.LENGTH_LONG).show();
             }
             @Override
             protected String doInBackground(Void... params) {
@@ -112,7 +112,7 @@ public class DetailActivity extends AppCompatActivity implements
                             public void onClick(DialogInterface arg0, int arg1) {
                                 deleteContact();
                                 startActivity(new
-                                        Intent(DetailActivity.this, WaitressActivity.class));
+                                        Intent(UserDetailActivity.this, WaitressActivity.class));
                             }
                         });
         alertDialogBuilder.setNegativeButton("Tidak",
