@@ -33,7 +33,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_menu_info);
 
         Intent intent = getIntent();
-        id = intent.getStringExtra(Konfigurasi.CON_ID);
+        id = intent.getStringExtra(Configuration.CON_ID);
 
         editTextName = (TextView) findViewById(R.id.editTextName);
         editTextNumber = (TextView) findViewById(R.id.editTextNumber);
@@ -66,7 +66,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET,id);
+                String s = rh.sendGetRequestParam(Configuration.URL_GET,id);
                 return s;
             }
         }
@@ -78,11 +78,11 @@ public class MenuInfoActivity extends AppCompatActivity implements
     private void showContact(String json){
         try {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Configuration.TAG_JSON_ARRAY);
             JSONObject c = result.getJSONObject(0);
 
-            String name = c.getString(Konfigurasi.TAG_NAME);
-            String number = c.getString(Konfigurasi.TAG_NUMBER);
+            String name = c.getString(Configuration.TAG_NAME);
+            String number = c.getString(Configuration.TAG_NUMBER);
 
             editTextName.setText(name);
             editTextNumber.setText(number);
@@ -115,11 +115,11 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(Konfigurasi.KEY_NAME,name);
-                params.put(Konfigurasi.KEY_NUMBER,number);
-                params.put(Konfigurasi.KEY_CON_TABLE, meja);
+                params.put(Configuration.KEY_NAME,name);
+                params.put(Configuration.KEY_NUMBER,number);
+                params.put(Configuration.KEY_ID_TABLE, meja);
                 RequestHandler rh = new RequestHandler();
-                String res = rh.sendPostRequest(Konfigurasi.URL_ORDER, params);
+                String res = rh.sendPostRequest(Configuration.URL_ORDER, params);
                 return res;
             }
         }

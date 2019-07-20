@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Konfigurasi.URL + "register.php";
+    private String url = Configuration.URL + "register.php";
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 

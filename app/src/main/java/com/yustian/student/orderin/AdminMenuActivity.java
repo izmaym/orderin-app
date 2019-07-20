@@ -34,7 +34,7 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_admin_menu);
 
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
 
@@ -49,16 +49,16 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
                 String>>();
         try {
             jsonObject = new JSONObject(JSON_STRING);
-            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Configuration.TAG_JSON_ARRAY);
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
-                String id = jo.getString(Konfigurasi.TAG_ID);
-                String name = jo.getString(Konfigurasi.TAG_NAME);
-                String number = jo.getString(Konfigurasi.TAG_NUMBER);
+                String id = jo.getString(Configuration.TAG_ID);
+                String name = jo.getString(Configuration.TAG_NAME);
+                String number = jo.getString(Configuration.TAG_NUMBER);
                 HashMap<String,String> contacts = new HashMap<>();
-                contacts.put(Konfigurasi.TAG_ID,id);
-                contacts.put(Konfigurasi.TAG_NAME,name);
-                contacts.put(Konfigurasi.TAG_NUMBER,number);
+                contacts.put(Configuration.TAG_ID,id);
+                contacts.put(Configuration.TAG_NAME,name);
+                contacts.put(Configuration.TAG_NUMBER,number);
                 list.add(contacts);
             }
         } catch (JSONException e) {
@@ -66,7 +66,7 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
         }
         ListAdapter adapter = new SimpleAdapter(
                 AdminMenuActivity.this, list, R.layout.activity_admin_list_view,
-                new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
+                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
     }
@@ -89,7 +89,7 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ALL);
+                String s = rh.sendGetRequest(Configuration.URL_GET_ALL);
                 return s;
             }
         }
@@ -102,39 +102,8 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
             id) {
         Intent intent = new Intent(this, AdminDetailMenuActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Konfigurasi.TAG_ID).toString();
-        intent.putExtra(Konfigurasi.CON_ID, empId);
+        String empId = map.get(Configuration.TAG_ID).toString();
+        intent.putExtra(Configuration.CON_ID, empId);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_read) {
-            Intent iread = new Intent(this, AdminMenuActivity.class);
-            startActivity(iread);
-            return true;
-        } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
-            startActivity(icreate);
-            return true;
-        } else if (id == R.id.action_settings) {
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putBoolean(LoginActivity.session_status, false);
-            editor.putString(TAG_ID, null);
-            editor.putString(TAG_USERNAME, null);
-            editor.commit();
-
-            Intent intent = new Intent(AdminMenuActivity.this, LoginActivity.class);
-            finish();
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

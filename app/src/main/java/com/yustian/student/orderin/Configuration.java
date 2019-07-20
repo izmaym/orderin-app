@@ -1,6 +1,6 @@
 package com.yustian.student.orderin;
 
-public class Konfigurasi {
+public class Configuration {
     // Offline
     public static final String URL = "http://192.168.43.94/orderin/";
 
@@ -24,6 +24,10 @@ public class Konfigurasi {
     public static final String URL_GET_ALL_USER = URL + "tampilsemuauser.php";
     public static final String URL_DELETE_USER = URL + "hapususer.php";
 
+    // API Meja
+    public static final String URL_GET_ALL_TABLE = URL + "tampilsemuameja.php";
+    public static final String URL_ADD_TABLE = URL + "tambahmeja.php";
+
     // KEY Menu
     public static final String KEY_ID = "id";
     public static final String KEY_KATEGORI = "id_kategori";
@@ -31,7 +35,9 @@ public class Konfigurasi {
     public static final String KEY_NUMBER = "number";
     public static final String KEY_STOK = "stok";
 
-    public static final String KEY_CON_TABLE = "id_meja";
+    // KEY Meja
+    public static final String KEY_ID_TABLE = "id_meja";
+    public static final String KEY_NUMBER_TABLE = "no_meja";
 
     // TAG
     public static final String TAG_JSON_ARRAY = "result";
@@ -43,6 +49,10 @@ public class Konfigurasi {
 
     // TAG User
     public static final String TAG_USERNAME = "username";
+
+    // TAG Table
+    public static final String TAG_ID_TABLE = "id_meja";
+    public static final String TAG_NUMBER_TABLE = "no_meja";
 
     // CON
     public static final String CON_ID = "CON_id";

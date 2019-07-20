@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class WelcomeActivity extends AppCompatActivity {
-
     TextView txt_username;
     Button btnSearch, btnMenu;
     EditText cari;
@@ -44,7 +43,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(cari.getText().toString().trim().length() > 0) {
                         Intent i = new Intent(getApplicationContext(), MenuInfoActivity.class);
-                        i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
+                        i.putExtra(Configuration.CON_ID, cari.getText().toString());
                         startActivity(i);
                     } else {
                         cari.setHintTextColor(getResources().getColor(R.color.colorRed));

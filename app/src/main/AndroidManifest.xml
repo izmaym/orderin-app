@@ -13,19 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminUserActivity"></activity>
+        <activity android:name=".AdminCreateTableActivity"></activity>
+        <activity
+            android:name=".AdminTableActivity"
+            android:label="@string/title_activity_admin_table"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AdminUserActivity" />
         <activity android:name=".AdminMenuActivity" />
         <activity android:name=".UserOrderActivity" />
         <activity
             android:name=".WaitressActivity"
             android:label="@string/title_activity_waitress"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".AdminActivity"
-            android:label="@string/title_activity_admin" />
-        <activity
-            android:name=".UserActivity"
-            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"

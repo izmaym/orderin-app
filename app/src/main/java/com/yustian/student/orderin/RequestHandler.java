@@ -30,7 +30,7 @@ public class RequestHandler {
             url = new URL(requestURL);
             //Membuat Koneksi HttpURLConnection
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            //Konfigurasi koneksi
+            //Configuration koneksi
             conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");

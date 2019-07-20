@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Konfigurasi.URL + "login.php";
+    private String url = Configuration.URL + "login.php";
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
@@ -186,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                             startActivity(intent);
                         } else {
-                            // Memanggil main activity
+                            // Memanggil user activity
                             Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);

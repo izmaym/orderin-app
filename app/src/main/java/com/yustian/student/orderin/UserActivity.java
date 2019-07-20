@@ -21,7 +21,6 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +31,6 @@ import java.util.HashMap;
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemClickListener {
-
     private ListView listView;
     private String JSON_STRING;
 
@@ -56,7 +54,6 @@ public class UserActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
             }
         });
 
@@ -73,11 +70,6 @@ public class UserActivity extends AppCompatActivity
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(TAG_ID);
         username = getIntent().getStringExtra(TAG_USERNAME);
-
-        // Mengambil username
-        View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.txt_username);
-        navUsername.setText(username);
 
         // Mengambil data menu
         listView = (ListView) findViewById(R.id.listView);
@@ -98,7 +90,7 @@ public class UserActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.user, menu);
         return true;
     }
 
@@ -111,14 +103,6 @@ public class UserActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_read) {
-            Intent iread = new Intent(this, WaitressActivity.class);
-            startActivity(iread);
-            return true;
-        } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
-            startActivity(icreate);
             return true;
         }
 
@@ -139,10 +123,6 @@ public class UserActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         } else if (id == R.id.nav_logout) {
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putBoolean(LoginActivity.session_status, false);
@@ -160,6 +140,7 @@ public class UserActivity extends AppCompatActivity
         return true;
     }
 
+
     private void showContact(){
         JSONObject jsonObject = null;
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,
@@ -167,19 +148,19 @@ public class UserActivity extends AppCompatActivity
 
         try {
             jsonObject = new JSONObject(JSON_STRING);
-            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Configuration.TAG_JSON_ARRAY);
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
 
-                String id = jo.getString(Konfigurasi.TAG_ID);
-                String name = jo.getString(Konfigurasi.TAG_NAME);
-                String number = jo.getString(Konfigurasi.TAG_NUMBER);
+                String id = jo.getString(Configuration.TAG_ID);
+                String name = jo.getString(Configuration.TAG_NAME);
+                String number = jo.getString(Configuration.TAG_NUMBER);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
-                contacts.put(Konfigurasi.TAG_ID,id);
-                contacts.put(Konfigurasi.TAG_NAME,name);
-                contacts.put(Konfigurasi.TAG_NUMBER,number);
+                contacts.put(Configuration.TAG_ID,id);
+                contacts.put(Configuration.TAG_NAME,name);
+                contacts.put(Configuration.TAG_NUMBER,number);
 
                 list.add(contacts);
             }
@@ -189,7 +170,7 @@ public class UserActivity extends AppCompatActivity
 
         ListAdapter adapter = new SimpleAdapter(
                 UserActivity.this, list, R.layout.activity_user_list_view,
-                new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
+                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
     }
@@ -212,7 +193,7 @@ public class UserActivity extends AppCompatActivity
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ALL);
+                String s = rh.sendGetRequest(Configuration.URL_GET_ALL);
                 return s;
             }
         }
@@ -225,8 +206,8 @@ public class UserActivity extends AppCompatActivity
             id) {
         Intent intent = new Intent(this, MenuInfoActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Konfigurasi.TAG_ID).toString();
-        intent.putExtra(Konfigurasi.CON_ID, empId);
+        String empId = map.get(Configuration.TAG_ID).toString();
+        intent.putExtra(Configuration.CON_ID, empId);
         startActivity(intent);
     }
 }

@@ -20,4 +20,15 @@
     <string name="title_activity_main">Menu Hari Ini</string>
     <string name="title_activity_admin">Admin Dashboard</string>
     <string name="title_activity_waitress">Waitress Dashboard</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_user2">User2Activity</string>
+    <string name="title_activity_admin_table">AdminTableActivity</string>
+
+    // Table
+    <string name="id_meja">ID Meja</string>
+    <string name="no_meja">No Meja</string>
 </resources>

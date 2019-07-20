@@ -35,7 +35,7 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_admin_detail_menu);
         Intent intent = getIntent();
 
-        id = intent.getStringExtra(Konfigurasi.CON_ID);
+        id = intent.getStringExtra(Configuration.CON_ID);
         editTextKategori = (EditText) findViewById(R.id.editTextKategori);
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextNumber = (EditText) findViewById(R.id.editTextNumber);
@@ -65,7 +65,7 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_GET,id);
+                String s = rh.sendGetRequestParam(Configuration.URL_GET,id);
                 return s;
             }
         }
@@ -75,10 +75,10 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
     private void showContact(String json){
         try {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Configuration.TAG_JSON_ARRAY);
             JSONObject c = result.getJSONObject(0);
-            String name = c.getString(Konfigurasi.TAG_NAME);
-            String number = c.getString(Konfigurasi.TAG_NUMBER);
+            String name = c.getString(Configuration.TAG_NAME);
+            String number = c.getString(Configuration.TAG_NUMBER);
             editTextName.setText(name);
             editTextNumber.setText(number);
         } catch (JSONException e) {
@@ -108,13 +108,13 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
             @Override
             protected String doInBackground(Void... params) {
                 HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(Konfigurasi.KEY_ID,id);
-                hashMap.put(Konfigurasi.KEY_KATEGORI,kategori);
-                hashMap.put(Konfigurasi.KEY_NAME,name);
-                hashMap.put(Konfigurasi.KEY_NUMBER,number);
-                hashMap.put(Konfigurasi.KEY_STOK, stok);
+                hashMap.put(Configuration.KEY_ID,id);
+                hashMap.put(Configuration.KEY_KATEGORI,kategori);
+                hashMap.put(Configuration.KEY_NAME,name);
+                hashMap.put(Configuration.KEY_NUMBER,number);
+                hashMap.put(Configuration.KEY_STOK, stok);
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendPostRequest(Konfigurasi.URL_UPDATE,hashMap);
+                String s = rh.sendPostRequest(Configuration.URL_UPDATE,hashMap);
                 return s;
             }
         }
@@ -140,7 +140,7 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(Konfigurasi.URL_DELETE, id);
+                String s = rh.sendGetRequestParam(Configuration.URL_DELETE, id);
                 return s;
             }
         }
@@ -176,24 +176,5 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
         if(v == buttonDelete){
             confirmDeleteContact();
         }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_read) {
-            Intent iread = new Intent(this, UserActivity.class);
-            startActivity(iread);
-            return true;
-        } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
-            startActivity(icreate);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
