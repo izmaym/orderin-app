@@ -1,7 +1,9 @@
 package com.yustian.student.orderin;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,10 +26,18 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
     private ListView listView;
     private String JSON_STRING;
 
+    SharedPreferences sharedpreferences;
+
+    public final static String TAG_USERNAME = "username";
+    public final static String TAG_ID = "id";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
+
         listView = (ListView) findViewById(R.id.listView);
         listView.setOnItemClickListener(this);
         getJSON();
@@ -90,7 +100,7 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, AdminDetailActivity.class);
+        Intent intent = new Intent(this, AdminDetailMenuActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Konfigurasi.TAG_ID).toString();
         intent.putExtra(Konfigurasi.CON_ID, empId);
@@ -114,6 +124,16 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
             Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
             startActivity(icreate);
             return true;
+        } else if (id == R.id.action_settings) {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(LoginActivity.session_status, false);
+            editor.putString(TAG_ID, null);
+            editor.putString(TAG_USERNAME, null);
+            editor.commit();
+
+            Intent intent = new Intent(AdminMenuActivity.this, LoginActivity.class);
+            finish();
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

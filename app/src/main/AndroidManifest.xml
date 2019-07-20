@@ -42,7 +42,7 @@
             android:name=".WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".AdminCreateMenuActivity" />
-        <activity android:name=".AdminDetailActivity" />
+        <activity android:name=".AdminDetailMenuActivity" />
         <activity android:name=".UserDetailActivity" />
         <activity
             android:name=".RegisterActivity"

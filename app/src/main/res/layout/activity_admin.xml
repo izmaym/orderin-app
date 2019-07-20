@@ -10,8 +10,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:text="Daftar"
+        android:text="Kelola Data Menu"
         android:id="@+id/btn_menu"
+        android:textColor="#d22532"
+        android:textSize="14.4sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Kelola Data User"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:id="@+id/btn_user"
         android:textColor="#d22532"
         android:textSize="14.4sp" />
 

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class AdminDetailActivity extends AppCompatActivity implements View.OnClickListener{
+public class AdminDetailMenuActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText editTextKategori;
     private EditText editTextName;
     private EditText editTextNumber;
@@ -32,7 +32,7 @@ public class AdminDetailActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_detail);
+        setContentView(R.layout.activity_admin_detail_menu);
         Intent intent = getIntent();
 
         id = intent.getStringExtra(Konfigurasi.CON_ID);
@@ -54,7 +54,7 @@ public class AdminDetailActivity extends AppCompatActivity implements View.OnCli
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading =
-                        ProgressDialog.show(AdminDetailActivity.this,"Fetching...","Wait...",false,false);
+                        ProgressDialog.show(AdminDetailMenuActivity.this,"Fetching...","Wait...",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -97,13 +97,13 @@ public class AdminDetailActivity extends AppCompatActivity implements View.OnCli
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading =
-                        ProgressDialog.show(AdminDetailActivity.this,"Updating...","Wait...",false,false);
+                        ProgressDialog.show(AdminDetailMenuActivity.this,"Updating...","Wait...",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(AdminDetailActivity.this,s,Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminDetailMenuActivity.this,s,Toast.LENGTH_LONG).show();
             }
             @Override
             protected String doInBackground(Void... params) {
@@ -128,14 +128,14 @@ public class AdminDetailActivity extends AppCompatActivity implements View.OnCli
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(AdminDetailActivity.this, "Updating...",
+                loading = ProgressDialog.show(AdminDetailMenuActivity.this, "Updating...",
                         "Wait...", false, false);
             }
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(AdminDetailActivity.this, s, Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminDetailMenuActivity.this, s, Toast.LENGTH_LONG).show();
             }
             @Override
             protected String doInBackground(Void... params) {
@@ -156,7 +156,7 @@ public class AdminDetailActivity extends AppCompatActivity implements View.OnCli
                             public void onClick(DialogInterface arg0, int arg1) {
                                 deleteContact();
                                 startActivity(new
-                                        Intent(AdminDetailActivity.this,AdminMenuActivity.class));
+                                        Intent(AdminDetailMenuActivity.this,AdminMenuActivity.class));
                             }
                         });
         alertDialogBuilder.setNegativeButton("Tidak",
