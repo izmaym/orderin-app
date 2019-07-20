@@ -4,23 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AdminActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/logo"
+        android:background="#fff"
+        android:paddingTop="10dp"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginLeft="5dp"
         android:text="Kelola Data Menu"
         android:id="@+id/btn_menu"
         android:textColor="#d22532"
         android:textSize="14.4sp" />
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/logo"
+        android:background="#fff"
+        android:paddingTop="10dp"
+        android:layout_marginTop="210dp"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginLeft="5dp"
         android:text="Kelola Data User"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="210dp"
         android:id="@+id/btn_user"
         android:textColor="#d22532"
         android:textSize="14.4sp" />

@@ -20,6 +20,10 @@ public class Konfigurasi {
     public static final String URL_ORDER = URL + "tambahpesanan.php";
     public static final String URL_DELETE_ORD = URL + "hapuspesanan.php?id=";
 
+    // API User
+    public static final String URL_GET_ALL_USER = URL + "tampilsemuauser.php";
+    public static final String URL_DELETE_USER = URL + "hapususer.php";
+
     // KEY Menu
     public static final String KEY_ID = "id";
     public static final String KEY_KATEGORI = "id_kategori";
@@ -36,6 +40,9 @@ public class Konfigurasi {
     public static final String TAG_NAME = "name";
     public static final String TAG_NUMBER = "number";
     public static final String TAG_STOK = "stok";
+
+    // TAG User
+    public static final String TAG_USERNAME = "username";
 
     // CON
     public static final String CON_ID = "CON_id";
