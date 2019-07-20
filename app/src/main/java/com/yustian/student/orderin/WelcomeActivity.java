@@ -4,16 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabSelectListener;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -58,7 +54,7 @@ public class WelcomeActivity extends AppCompatActivity {
             });
             btnMenu.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent i = new Intent(getApplicationContext(), UserActivity.class);
                         i.putExtra(TAG_ID, id);
                         i.putExtra(TAG_USERNAME, username);
                         startActivity(i);

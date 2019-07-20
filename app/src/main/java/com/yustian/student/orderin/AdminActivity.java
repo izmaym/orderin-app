@@ -23,7 +23,6 @@ public class AdminActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 Intent intent = new Intent(AdminActivity.this, AdminMenuActivity.class);
                 startActivity(intent);
             }
@@ -33,7 +32,6 @@ public class AdminActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 Intent intent = new Intent(AdminActivity.this, AdminUserActivity.class);
                 startActivity(intent);
             }

@@ -108,7 +108,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 String username = txt_username.getText().toString();
                 String password = txt_password.getText().toString();
 
@@ -132,7 +131,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 finish();
                 startActivity(intent);

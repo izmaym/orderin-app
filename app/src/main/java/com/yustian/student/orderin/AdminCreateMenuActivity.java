@@ -95,7 +95,7 @@ public class AdminCreateMenuActivity extends AppCompatActivity implements View.O
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_read) {
-            Intent iread = new Intent(this, MainActivity.class);
+            Intent iread = new Intent(this, UserActivity.class);
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {

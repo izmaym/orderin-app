@@ -30,7 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity
+public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ListView.OnItemClickListener {
 
     private ListView listView;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity
             editor.putString(TAG_USERNAME, null);
             editor.commit();
 
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(UserActivity.this, LoginActivity.class);
             finish();
             startActivity(intent);
         }
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                MainActivity.this, list, R.layout.activity_list_view,
+                UserActivity.this, list, R.layout.activity_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
+                loading = ProgressDialog.show(UserActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
