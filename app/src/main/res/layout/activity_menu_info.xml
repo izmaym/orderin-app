@@ -52,7 +52,6 @@
 
                 <include layout="@layout/food_detail_toolbar" />
 
-
             </FrameLayout>
 
             <LinearLayout
