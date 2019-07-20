@@ -188,7 +188,7 @@ public class UserActivity extends AppCompatActivity
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                UserActivity.this, list, R.layout.activity_list_view,
+                UserActivity.this, list, R.layout.activity_user_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);

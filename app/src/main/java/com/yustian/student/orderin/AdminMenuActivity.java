@@ -65,7 +65,7 @@ public class AdminMenuActivity extends AppCompatActivity implements ListView.OnI
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                AdminMenuActivity.this, list, R.layout.activity_list_view,
+                AdminMenuActivity.this, list, R.layout.activity_admin_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);

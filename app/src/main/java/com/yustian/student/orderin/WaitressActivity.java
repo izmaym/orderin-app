@@ -183,7 +183,7 @@ public class WaitressActivity extends AppCompatActivity
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                WaitressActivity.this, list, R.layout.activity_list_view,
+                WaitressActivity.this, list, R.layout.activity_waitress_list_view,
                 new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);

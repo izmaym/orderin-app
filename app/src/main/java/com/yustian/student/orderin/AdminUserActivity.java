@@ -63,7 +63,7 @@ public class AdminUserActivity extends AppCompatActivity implements ListView.OnI
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                AdminUserActivity.this, list, R.layout.activity_list_view,
+                AdminUserActivity.this, list, R.layout.activity_user_list_view,
                 new String[]{Konfigurasi.TAG_USERNAME},
                 new int[]{R.id.name});
         listView.setAdapter(adapter);
