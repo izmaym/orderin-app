@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,9 +38,12 @@ public class UserActivity extends AppCompatActivity
     String id;
     SharedPreferences sharedpreferences;
     String username;
+    String meja;
+    String transaction;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
+    public static final String TAG_TRANSACTION = "no_transaksi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,9 @@ public class UserActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(UserActivity.this, UserOrderActivity.class);
+                intent.putExtra(Configuration.TAG_ID_TRANSACTION, transaction);
+                startActivity(intent);
             }
         });
 
@@ -68,8 +73,12 @@ public class UserActivity extends AppCompatActivity
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(TAG_ID);
+        id = getIntent().getStringExtra(Configuration.TAG_ID_TABLE);
         username = getIntent().getStringExtra(TAG_USERNAME);
+        transaction = getIntent().getStringExtra(TAG_TRANSACTION);
+
+        Intent intent = getIntent();
+        meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
 
         // Mengambil data menu
         listView = (ListView) findViewById(R.id.listView);
@@ -116,7 +125,8 @@ public class UserActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Intent intent = new Intent(UserActivity.this, UserTableActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -139,7 +149,6 @@ public class UserActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     private void showContact(){
         JSONObject jsonObject = null;
@@ -208,6 +217,8 @@ public class UserActivity extends AppCompatActivity
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Configuration.TAG_ID).toString();
         intent.putExtra(Configuration.CON_ID, empId);
+        intent.putExtra(Configuration.TAG_ID_TABLE, meja);
+        intent.putExtra(Configuration.TAG_ID_TRANSACTION, transaction);
         startActivity(intent);
     }
 }

@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminCreateTableActivity"></activity>
+        <activity android:name=".UserTableActivity"></activity>
+        <activity android:name=".AdminCreateTableActivity" />
         <activity
             android:name=".AdminTableActivity"
             android:label="@string/title_activity_admin_table"

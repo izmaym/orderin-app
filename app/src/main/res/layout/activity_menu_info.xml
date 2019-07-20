@@ -119,13 +119,6 @@
                     android:text="Rp."
                     android:textColor="#262628"
                     android:textSize="19.2dp" />
-
-                <EditText
-                    android:id="@+id/editTextTable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="No Meja"
-                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout

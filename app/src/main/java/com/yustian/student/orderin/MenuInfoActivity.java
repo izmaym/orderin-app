@@ -22,10 +22,11 @@ public class MenuInfoActivity extends AppCompatActivity implements
 
     private TextView editTextName;
     private TextView editTextNumber;
-    private EditText editTextTable;
 
     private Button buttonAdd;
     private String id;
+    private String meja;
+    private String transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,11 @@ public class MenuInfoActivity extends AppCompatActivity implements
 
         Intent intent = getIntent();
         id = intent.getStringExtra(Configuration.CON_ID);
+        meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
+        transaction = intent.getStringExtra(Configuration.TAG_ID_TRANSACTION);
 
         editTextName = (TextView) findViewById(R.id.editTextName);
         editTextNumber = (TextView) findViewById(R.id.editTextNumber);
-        editTextTable = (EditText)findViewById(R.id.editTextTable);
 
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(this);
@@ -94,7 +96,6 @@ public class MenuInfoActivity extends AppCompatActivity implements
     private void addContact() {
         final String name = editTextName.getText().toString().trim();
         final String number = editTextNumber.getText().toString().trim();
-        final String meja = editTextTable.getText().toString().trim();
 
         class AddContact extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
@@ -115,6 +116,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
+                params.put(Configuration.KEY_ID_TRANSACTION, transaction);
                 params.put(Configuration.KEY_NAME,name);
                 params.put(Configuration.KEY_NUMBER,number);
                 params.put(Configuration.KEY_ID_TABLE, meja);

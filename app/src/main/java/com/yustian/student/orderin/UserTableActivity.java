@@ -5,12 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
@@ -25,32 +21,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UserOrderActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class UserTableActivity extends AppCompatActivity implements ListView.OnItemClickListener {
     private ListView listView;
     private String JSON_STRING;
 
     String id;
     SharedPreferences sharedpreferences;
     String username;
-    String meja;
-    String transaction;
+    String empId;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
-    public static final String TAG_TRANSACTION = "no_transaksi";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_order);
+        setContentView(R.layout.activity_user_table);
+
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(Configuration.TAG_ID_TABLE);
-        username = getIntent().getStringExtra(TAG_USERNAME);
-        transaction = getIntent().getStringExtra(TAG_TRANSACTION);
-
-        Intent intent = getIntent();
-        meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
+        id = sharedpreferences.getString(TAG_ID, null);
+        username = sharedpreferences.getString(TAG_USERNAME, null);
 
         // Mengambil data menu
         listView = (ListView) findViewById(R.id.listView);
@@ -69,15 +60,13 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
 
-                String id = jo.getString(Configuration.TAG_ID);
-                String name = jo.getString(Configuration.TAG_NAME);
-                String number = jo.getString(Configuration.TAG_NUMBER);
+                String id = jo.getString(Configuration.TAG_ID_TABLE);
+                String name = jo.getString(Configuration.TAG_NUMBER_TABLE);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
-                contacts.put(Configuration.TAG_ID,id);
-                contacts.put(Configuration.TAG_NAME,name);
-                contacts.put(Configuration.TAG_NUMBER,number);
+                contacts.put(Configuration.TAG_ID_TABLE,id);
+                contacts.put(Configuration.TAG_NUMBER_TABLE,name);
 
                 list.add(contacts);
             }
@@ -86,8 +75,8 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                UserOrderActivity.this, list, R.layout.activity_user_list_view,
-                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
+                UserTableActivity.this, list, R.layout.activity_user_list_view,
+                new String[]{Configuration.TAG_ID_TABLE, Configuration.TAG_NUMBER_TABLE},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
     }
@@ -98,7 +87,7 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(UserOrderActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
+                loading = ProgressDialog.show(UserTableActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -110,7 +99,7 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Configuration.URL_GET_ALL_ORD_USER+"?no_transaksi="+transaction);
+                String s = rh.sendGetRequest(Configuration.URL_GET_ALL_TABLE);
                 return s;
             }
         }
@@ -121,12 +110,43 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, MenuInfoActivity.class);
+        Intent intent = new Intent(this, UserActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Configuration.TAG_ID).toString();
-        intent.putExtra(Configuration.CON_ID, empId);
-        intent.putExtra(Configuration.TAG_ID_TABLE, meja);
-        intent.putExtra(Configuration.TAG_ID_TRANSACTION, transaction);
+        empId = map.get(Configuration.TAG_ID_TABLE).toString();
+        intent.putExtra(Configuration.TAG_ID_TABLE, empId);
+        intent.putExtra(Configuration.TAG_ID_TRANSACTION, empId+id);
+        addContact();
         startActivity(intent);
     }
+
+    private void addContact() {
+        class AddContact extends AsyncTask<Void,Void,String> {
+            ProgressDialog loading;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(UserTableActivity.this,"Menambahkan...",
+                        "Tunggu...",false,false);
+            }
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(UserTableActivity.this,s,Toast.LENGTH_LONG).show();
+            }
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String,String> params = new HashMap<>();
+                params.put(Configuration.KEY_ID_TRANSACTION, empId + id);
+                params.put(Configuration.KEY_ID_USER, id);
+
+                RequestHandler rh = new RequestHandler();
+                String res = rh.sendPostRequest(Configuration.URL_ADD_SALES, params);
+                return res;
+            }
+        }
+        AddContact ae = new AddContact();
+        ae.execute();
+    }
 }
+
