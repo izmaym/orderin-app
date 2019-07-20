@@ -75,15 +75,17 @@ public class AdminCreateMenuActivity extends AppCompatActivity implements View.O
         AddContact ae = new AddContact();
         ae.execute();
     }
+
     @Override
     public void onClick(View v) {
         if(v == buttonAdd){
             addContact();
         }
         if(v == buttonView){
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, AdminMenuActivity.class));
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

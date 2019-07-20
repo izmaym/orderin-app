@@ -20,21 +20,27 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class AdminDetailActivity extends AppCompatActivity implements
-        View.OnClickListener{
+public class AdminDetailActivity extends AppCompatActivity implements View.OnClickListener{
+    private EditText editTextKategori;
     private EditText editTextName;
     private EditText editTextNumber;
+    private EditText editTextStok;
     private Button buttonUpdate;
     private Button buttonDelete;
     private String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_detail);
         Intent intent = getIntent();
+
         id = intent.getStringExtra(Konfigurasi.CON_ID);
+        editTextKategori = (EditText) findViewById(R.id.editTextKategori);
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextNumber = (EditText) findViewById(R.id.editTextNumber);
+        editTextStok = (EditText) findViewById(R.id.editTextStok);
+
         buttonUpdate = (Button) findViewById(R.id.buttonUpdate);
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
         buttonUpdate.setOnClickListener(this);
@@ -80,8 +86,11 @@ public class AdminDetailActivity extends AppCompatActivity implements
         }
     }
     private void updateContact(){
+        final String kategori = editTextKategori.getText().toString().trim();
         final String name = editTextName.getText().toString().trim();
         final String number = editTextNumber.getText().toString().trim();
+        final String stok = editTextStok.getText().toString().trim();
+
         class UpdateContact extends AsyncTask<Void,Void,String>{
             ProgressDialog loading;
             @Override
@@ -100,8 +109,10 @@ public class AdminDetailActivity extends AppCompatActivity implements
             protected String doInBackground(Void... params) {
                 HashMap<String,String> hashMap = new HashMap<>();
                 hashMap.put(Konfigurasi.KEY_ID,id);
+                hashMap.put(Konfigurasi.KEY_KATEGORI,kategori);
                 hashMap.put(Konfigurasi.KEY_NAME,name);
                 hashMap.put(Konfigurasi.KEY_NUMBER,number);
+                hashMap.put(Konfigurasi.KEY_STOK, stok);
                 RequestHandler rh = new RequestHandler();
                 String s = rh.sendPostRequest(Konfigurasi.URL_UPDATE,hashMap);
                 return s;
@@ -110,6 +121,7 @@ public class AdminDetailActivity extends AppCompatActivity implements
         UpdateContact ue = new UpdateContact();
         ue.execute();
     }
+
     private void deleteContact(){
         class DeleteContact extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;

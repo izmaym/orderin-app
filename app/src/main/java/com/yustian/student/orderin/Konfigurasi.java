@@ -32,8 +32,10 @@ public class Konfigurasi {
     // TAG
     public static final String TAG_JSON_ARRAY = "result";
     public static final String TAG_ID = "id";
+    public static final String TAG_KATEGORI = "id_kategori";
     public static final String TAG_NAME = "name";
     public static final String TAG_NUMBER = "number";
+    public static final String TAG_STOK = "stok";
 
     // CON
     public static final String CON_ID = "CON_id";

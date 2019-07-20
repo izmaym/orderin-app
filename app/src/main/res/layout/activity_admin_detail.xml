@@ -11,19 +11,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/id_kategori" />
+    <EditText
+        android:id="@+id/editTextKategori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/name" />
     <EditText
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextName" />
+        android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/phone" />
     <EditText
+        android:id="@+id/editTextNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextNumber" />
+        android:inputType="number" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stok" />
+    <EditText
+        android:id="@+id/editTextStok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
     <Button
         style="@style/ButtonGeneral"
         android:layout_width="match_parent"
