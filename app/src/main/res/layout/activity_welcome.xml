@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/homebg"
+    android:background="@drawable/loginbg"
     tools:context=".WelcomeActivity">
 
     <LinearLayout
@@ -78,13 +78,6 @@
                 android:textColor="#000"
                 android:textColorHint="#9b9b9b"
                 android:textSize="14.4sp" />
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginRight="15.4dp"
-                android:src="@drawable/ic_places"
-                android:tint="#d22532"/>
         </LinearLayout>
 
         <Button
@@ -97,7 +90,21 @@
             android:background="@color/colorAccent"
             android:gravity="center_horizontal"
             android:padding="16dp"
-            android:text="Search"
+            android:text="Cari"
+            android:textColor="#ffffff"
+            android:textSize="14.4sp" />
+
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22.1dp"
+            android:layout_marginTop="22.1dp"
+            android:layout_marginRight="21.1dp"
+            android:background="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="Lihat Menu"
             android:textColor="#ffffff"
             android:textSize="14.4sp" />
     </LinearLayout>

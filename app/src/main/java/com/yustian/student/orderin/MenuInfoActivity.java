@@ -53,7 +53,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading =
-                        ProgressDialog.show(MenuInfoActivity.this,"Fetching...","Wait...",false,false);
+                        ProgressDialog.show(MenuInfoActivity.this,"Mencari...","Silahkan Tunggu...",false,false);
             }
 
             @Override

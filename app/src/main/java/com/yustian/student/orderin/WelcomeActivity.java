@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -17,7 +18,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 public class WelcomeActivity extends AppCompatActivity {
 
     TextView txt_username;
-    Button btnSearch;
+    Button btnSearch, btnMenu;
     EditText cari;
     String id, username;
     SharedPreferences sharedpreferences;
@@ -31,6 +32,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         btnSearch = (Button)findViewById(R.id.btnSearch);
+        btnMenu = (Button)findViewById(R.id.btnMenu);
         cari = (EditText)findViewById(R.id.cari);
         txt_username = (TextView)findViewById(R.id.txt_username);
 
@@ -44,16 +46,22 @@ public class WelcomeActivity extends AppCompatActivity {
         if (extras != null) {
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    if (cari.getText().toString().equals("")) {
+                    if(cari.getText().toString().trim().length() > 0) {
+                        Intent i = new Intent(getApplicationContext(), MenuInfoActivity.class);
+                        i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
+                        startActivity(i);
+                    } else {
+                        cari.setHintTextColor(getResources().getColor(R.color.colorRed));
+                        Toast.makeText(getApplicationContext() ,"Silahkan ketik apa yang ingin anda cari", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            btnMenu.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
                         Intent i = new Intent(getApplicationContext(), MainActivity.class);
                         i.putExtra(TAG_ID, id);
                         i.putExtra(TAG_USERNAME, username);
                         startActivity(i);
-                    } else {
-                        Intent i = new Intent(getApplicationContext(), MenuInfoActivity.class);
-                        i.putExtra(Konfigurasi.CON_ID, cari.getText().toString());
-                        startActivity(i);
-                    }
                 }
             });
         }
