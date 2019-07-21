@@ -132,7 +132,11 @@ public class MenuInfoActivity extends AppCompatActivity implements
     @Override
     public void onClick(View v) {
         if(v == buttonAdd){
-            addContact();
+            if(meja.length() > 0) {
+                addContact();
+            } else {
+                Toast.makeText(MenuInfoActivity.this,"Silahkan pilih meja terlebih dahulu",Toast.LENGTH_LONG).show();
+            }
         }
     }
 

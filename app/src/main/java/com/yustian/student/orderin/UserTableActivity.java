@@ -20,6 +20,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class UserTableActivity extends AppCompatActivity implements ListView.OnItemClickListener {
     private ListView listView;
@@ -29,6 +30,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
     SharedPreferences sharedpreferences;
     String username;
     String empId;
+    int acak;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
@@ -37,6 +39,9 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_table);
+
+        Random rand = new Random();
+        acak = rand.nextInt(50);
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
@@ -75,7 +80,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                UserTableActivity.this, list, R.layout.activity_user_list_view,
+                UserTableActivity.this, list, R.layout.activity_user_table_list_view,
                 new String[]{Configuration.TAG_ID_TABLE, Configuration.TAG_NUMBER_TABLE},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
@@ -87,7 +92,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(UserTableActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
+                loading = ProgressDialog.show(UserTableActivity.this,"Menyiapkan Meja","Silahkan Tunggu",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
@@ -114,7 +119,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         empId = map.get(Configuration.TAG_ID_TABLE).toString();
         intent.putExtra(Configuration.TAG_ID_TABLE, empId);
-        intent.putExtra(Configuration.TAG_ID_TRANSACTION, empId+id);
+        intent.putExtra(Configuration.TAG_ID_TRANSACTION, empId+id+acak);
         addContact();
         startActivity(intent);
     }
@@ -137,7 +142,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected String doInBackground(Void... v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put(Configuration.KEY_ID_TRANSACTION, empId + id);
+                params.put(Configuration.KEY_ID_TRANSACTION, empId + id + acak);
                 params.put(Configuration.KEY_ID_USER, id);
 
                 RequestHandler rh = new RequestHandler();

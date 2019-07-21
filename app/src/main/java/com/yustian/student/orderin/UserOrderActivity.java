@@ -86,7 +86,7 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                UserOrderActivity.this, list, R.layout.activity_user_list_view,
+                UserOrderActivity.this, list, R.layout.activity_user_order_list_view,
                 new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
@@ -98,7 +98,7 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(UserOrderActivity.this,"Menyiapkan Menu","Silahkan Tunggu",false,false);
+                loading = ProgressDialog.show(UserOrderActivity.this,"Menyiapkan Pesanan Anda","Silahkan Tunggu",false,false);
             }
             @Override
             protected void onPostExecute(String s) {
