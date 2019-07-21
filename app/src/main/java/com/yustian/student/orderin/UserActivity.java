@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -73,12 +74,17 @@ public class UserActivity extends AppCompatActivity
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(Configuration.TAG_ID_TABLE);
-        username = getIntent().getStringExtra(TAG_USERNAME);
+        id = sharedpreferences.getString(TAG_ID, null);
+        username = sharedpreferences.getString(TAG_USERNAME, null);
         transaction = getIntent().getStringExtra(TAG_TRANSACTION);
 
         Intent intent = getIntent();
         meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
+
+        // Mengambil username
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.txt_username);
+        navUsername.setText(username);
 
         // Mengambil data menu
         listView = (ListView) findViewById(R.id.listView);

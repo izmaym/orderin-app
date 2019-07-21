@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -34,6 +35,9 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
     String username;
     String meja;
     String transaction;
+    int total;
+
+    TextView txt_total;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
@@ -43,6 +47,9 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_order);
+
+        txt_total = (TextView)findViewById(R.id.txt_total);
+
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
         id = getIntent().getStringExtra(Configuration.TAG_ID_TABLE);
@@ -72,6 +79,8 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
                 String id = jo.getString(Configuration.TAG_ID);
                 String name = jo.getString(Configuration.TAG_NAME);
                 String number = jo.getString(Configuration.TAG_NUMBER);
+
+                //total = total + Integer.parseInt(number);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
@@ -116,6 +125,7 @@ public class UserOrderActivity extends AppCompatActivity implements ListView.OnI
         }
         GetJSON gj = new GetJSON();
         gj.execute();
+        //txt_total.setText(String.valueOf(total));
     }
 
     @Override

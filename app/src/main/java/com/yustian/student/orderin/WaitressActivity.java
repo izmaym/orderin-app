@@ -71,8 +71,8 @@ public class WaitressActivity extends AppCompatActivity
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(TAG_ID);
-        username = getIntent().getStringExtra(TAG_USERNAME);
+        id = sharedpreferences.getString(TAG_ID, null);
+        username = sharedpreferences.getString(TAG_USERNAME, null);
 
         // Mengambil username
         View headerView = navigationView.getHeaderView(0);
