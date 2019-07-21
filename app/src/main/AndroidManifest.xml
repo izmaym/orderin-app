@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserTableListViewActivity"></activity>
-        <activity android:name=".UserOrderListViewActivity" />
+        <activity android:name=".UserTableListView"></activity>
+        <activity android:name=".UserOrderListView" />
         <activity android:name=".UserTableActivity" />
         <activity android:name=".AdminCreateTableActivity" />
         <activity
