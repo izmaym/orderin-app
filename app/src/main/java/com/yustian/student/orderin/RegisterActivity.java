@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Konfigurasi.URL + "register.php";
+    private String url = Configuration.URL + "register.php";
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
@@ -68,7 +68,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 String username = txt_username.getText().toString();
                 String password = txt_password.getText().toString();
                 String confirm_password = txt_confirm_password.getText().toString();

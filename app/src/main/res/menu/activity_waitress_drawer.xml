@@ -7,23 +7,19 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Kelola Data Menu" />
+            android:title="Import" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Kelola Data Status" />
+            android:title="Gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Kelola Data Meja" />
+            android:title="Slideshow" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Kelola Data User" />
-        <item
-            android:id="@+id/nav_report"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Laporan" />
+            android:title="Tools" />
     </group>
 
     <item android:title="Account">

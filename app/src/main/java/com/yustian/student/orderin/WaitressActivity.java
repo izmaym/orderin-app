@@ -71,8 +71,8 @@ public class WaitressActivity extends AppCompatActivity
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
-        id = getIntent().getStringExtra(TAG_ID);
-        username = getIntent().getStringExtra(TAG_USERNAME);
+        id = sharedpreferences.getString(TAG_ID, null);
+        username = sharedpreferences.getString(TAG_USERNAME, null);
 
         // Mengambil username
         View headerView = navigationView.getHeaderView(0);
@@ -117,7 +117,7 @@ public class WaitressActivity extends AppCompatActivity
             startActivity(iread);
             return true;
         } else if (id == R.id.action_create) {
-            Intent icreate = new Intent(this, CreateActivity.class);
+            Intent icreate = new Intent(this, AdminCreateMenuActivity.class);
             startActivity(icreate);
             return true;
         }
@@ -164,27 +164,27 @@ public class WaitressActivity extends AppCompatActivity
                 String>>();
         try {
             jsonObject = new JSONObject(JSON_STRING);
-            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Configuration.TAG_JSON_ARRAY);
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
 
-                String id = jo.getString(Konfigurasi.TAG_ID);
-                String name = jo.getString(Konfigurasi.TAG_NAME);
-                String number = jo.getString(Konfigurasi.TAG_NUMBER);
+                String id = jo.getString(Configuration.TAG_ID);
+                String name = jo.getString(Configuration.TAG_NAME);
+                String number = jo.getString(Configuration.TAG_NUMBER);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
-                contacts.put(Konfigurasi.TAG_ID,id);
-                contacts.put(Konfigurasi.TAG_NAME,name);
-                contacts.put(Konfigurasi.TAG_NUMBER,number);
+                contacts.put(Configuration.TAG_ID,id);
+                contacts.put(Configuration.TAG_NAME,name);
+                contacts.put(Configuration.TAG_NUMBER,number);
                 list.add(contacts);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         ListAdapter adapter = new SimpleAdapter(
-                WaitressActivity.this, list, R.layout.activity_list_view,
-                new String[]{Konfigurasi.TAG_NAME,Konfigurasi.TAG_NUMBER},
+                WaitressActivity.this, list, R.layout.activity_waitress_list_view,
+                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
                 new int[]{R.id.name, R.id.number});
         listView.setAdapter(adapter);
     }
@@ -210,7 +210,7 @@ public class WaitressActivity extends AppCompatActivity
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(Konfigurasi.URL_GET_ALL_ORD);
+                String s = rh.sendGetRequest(Configuration.URL_GET_ALL_ORD);
                 return s;
             }
         }
@@ -221,10 +221,10 @@ public class WaitressActivity extends AppCompatActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, DetailActivity.class);
+        Intent intent = new Intent(this, UserDetailActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Konfigurasi.TAG_ID).toString();
-        intent.putExtra(Konfigurasi.CON_ID, empId);
+        String empId = map.get(Configuration.TAG_ID).toString();
+        intent.putExtra(Configuration.CON_ID, empId);
         startActivity(intent);
     }
 }

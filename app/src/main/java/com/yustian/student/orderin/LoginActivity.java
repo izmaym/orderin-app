@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
 
-    private String url = Konfigurasi.URL + "login.php";
+    private String url = Configuration.URL + "login.php";
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
@@ -83,7 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         username = sharedpreferences.getString(TAG_USERNAME, null);
 
         if (session) {
-            if(username.equals("waitress")) {
+            if(username.equals("admin")) {
+                Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_USERNAME, username);
+                finish();
+                startActivity(intent);
+            } else if(username.equals("waitress")) {
                 Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_USERNAME, username);
@@ -102,7 +108,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 String username = txt_username.getText().toString();
                 String password = txt_password.getText().toString();
 
@@ -126,7 +131,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 finish();
                 startActivity(intent);
@@ -169,14 +173,20 @@ public class LoginActivity extends AppCompatActivity {
                         editor.commit();
 
                         // Jika username waitress, masuk Admin Dashboard
-                        if(username.equals("waitress")) {
+                        if(username.equals("admin")) {
+                            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_USERNAME, username);
+                            finish();
+                            startActivity(intent);
+                        } else if(username.equals("waitress")) {
                             Intent intent = new Intent(LoginActivity.this, WaitressActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);
                             finish();
                             startActivity(intent);
                         } else {
-                            // Memanggil main activity
+                            // Memanggil user activity
                             Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);

@@ -13,14 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".UserTableListView"></activity>
+        <activity android:name=".UserOrderListView" />
+        <activity android:name=".UserTableActivity" />
+        <activity android:name=".AdminCreateTableActivity" />
         <activity
-            android:name=".WaitressActivity"
-            android:label="@string/title_activity_admin"
+            android:name=".AdminTableActivity"
+            android:label="@string/title_activity_admin_table"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:name=".UserActivity"
+            android:label="@string/title_activity_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AdminUserActivity" />
+        <activity android:name=".AdminMenuActivity" />
+        <activity android:name=".UserOrderActivity" />
+        <activity
+            android:name=".WaitressActivity"
+            android:label="@string/title_activity_waitress"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
@@ -37,8 +51,9 @@
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".CreateActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".AdminCreateMenuActivity" />
+        <activity android:name=".AdminDetailMenuActivity" />
+        <activity android:name=".UserDetailActivity" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

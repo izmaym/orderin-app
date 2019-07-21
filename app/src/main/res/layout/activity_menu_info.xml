@@ -50,8 +50,7 @@
                     app:ci_height="7dp"
                     app:ci_width="7dp" />
 
-                <include layout="@layout/food5_detail_toolbar" />
-
+                <include layout="@layout/food_detail_toolbar" />
 
             </FrameLayout>
 
@@ -117,7 +116,7 @@
                     android:id="@+id/editTextNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cocobolo Poolside Bar + Grill"
+                    android:text="Rp."
                     android:textColor="#262628"
                     android:textSize="19.2dp" />
             </LinearLayout>
@@ -302,12 +301,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <EditText
-        android:id="@+id/editTextTable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="No Meja" />
 
     <Button
         android:id="@+id/buttonAdd"
