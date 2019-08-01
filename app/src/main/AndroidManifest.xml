@@ -40,8 +40,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".WaitressOrderActivity"
-            android:label="@string/title_activity_waitress"
+            android:label="Data Pesanan" />
+        <activity
+            android:name=".WaitressDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        WaitressDetailActivity
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

@@ -56,6 +56,7 @@ public class Configuration {
     // TAG Pesanan
     public static final String TAG_NAME = "name";
     public static final String TAG_NUMBER = "number";
+    public static final String TAG_ID_MEJA = "id_meja";
 
     // TAG User
     public static final String TAG_USERNAME = "username";

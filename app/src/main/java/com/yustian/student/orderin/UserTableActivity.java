@@ -66,12 +66,10 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
                 JSONObject jo = result.getJSONObject(i);
 
                 String id = jo.getString(Configuration.TAG_ID_TABLE);
-                String name = jo.getString(Configuration.TAG_NUMBER_TABLE);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
                 contacts.put(Configuration.TAG_ID_TABLE,id);
-                contacts.put(Configuration.TAG_NUMBER_TABLE,name);
 
                 list.add(contacts);
             }
@@ -81,8 +79,8 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
 
         ListAdapter adapter = new SimpleAdapter(
                 UserTableActivity.this, list, R.layout.activity_user_table_list_view,
-                new String[]{Configuration.TAG_ID_TABLE, Configuration.TAG_NUMBER_TABLE},
-                new int[]{R.id.name, R.id.number});
+                new String[]{Configuration.TAG_ID_TABLE},
+                new int[]{R.id.name});
         listView.setAdapter(adapter);
     }
 
@@ -145,7 +143,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, UserMenuActivity.class);
+        Intent intent = new Intent(this, UserActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         empId = map.get(Configuration.TAG_ID_TABLE).toString();
         intent.putExtra(Configuration.TAG_ID_TABLE, empId);

@@ -103,15 +103,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                     // Check for error node in json
                     if (success == 1) {
-
-                        Log.e("Successfully RegisterActivity!", jObj.toString());
-
-                        Toast.makeText(getApplicationContext(),
-                                jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
 
                         txt_username.setText("");
                         txt_password.setText("");
                         txt_confirm_password.setText("");
+
+                        intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        finish();
+                        startActivity(intent);
 
                     } else {
                         Toast.makeText(getApplicationContext(),
@@ -133,7 +133,6 @@ public class RegisterActivity extends AppCompatActivity {
                         error.getMessage(), Toast.LENGTH_LONG).show();
 
                 hideDialog();
-
             }
         }) {
 

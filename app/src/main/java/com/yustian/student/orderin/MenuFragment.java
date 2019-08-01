@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DashboardFragment extends Fragment {
+public class MenuFragment extends Fragment {
     private ListView listView;
     private String JSON_STRING;
 

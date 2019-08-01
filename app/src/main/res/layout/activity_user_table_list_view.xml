@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textColor="#262628"
         android:textSize="19.2dp"/>
+
     <TextView
         android:id="@+id/number"
         android:layout_width="wrap_content"

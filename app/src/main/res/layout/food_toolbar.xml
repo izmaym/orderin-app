@@ -8,18 +8,30 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/food13_ract_edit"
         android:orientation="horizontal"
         android:padding="12dp"
         android:paddingRight="20dp">
 
-        <TextView
-            android:id="@+id/textView"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:text="Menu"
-            android:textColor="#fff"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:src="@drawable/ic_search_black_24dp"
+            android:tint="#d0d0d0" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#00000000"
+            android:paddingRight="15sp"
+            android:hint="Cari makanan, minuman ..."
+            android:inputType="text"
+            android:maxLength="20"
+            android:paddingLeft="5dp"
+            android:textSize="14.4sp" />
     </LinearLayout>
 
 </android.support.v7.widget.Toolbar>

@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WaitressOrderActivity extends AppCompatActivity implements android.widget.ListView.OnItemClickListener {
-
     private android.widget.ListView listView;
     private String JSON_STRING;
 
@@ -71,12 +70,14 @@ public class WaitressOrderActivity extends AppCompatActivity implements android.
                 String id = jo.getString(Configuration.TAG_ID);
                 String name = jo.getString(Configuration.TAG_NAME);
                 String number = jo.getString(Configuration.TAG_NUMBER);
+                String id_meja = jo.getString(Configuration.TAG_ID_MEJA);
 
                 HashMap<String,String> contacts = new HashMap<>();
 
                 contacts.put(Configuration.TAG_ID,id);
                 contacts.put(Configuration.TAG_NAME,name);
                 contacts.put(Configuration.TAG_NUMBER,number);
+                contacts.put(Configuration.TAG_ID_MEJA,id_meja);
                 list.add(contacts);
             }
         } catch (JSONException e) {
@@ -84,8 +85,8 @@ public class WaitressOrderActivity extends AppCompatActivity implements android.
         }
         ListAdapter adapter = new SimpleAdapter(
                 WaitressOrderActivity.this, list, R.layout.activity_waitress_list_view,
-                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER},
-                new int[]{R.id.name, R.id.number});
+                new String[]{Configuration.TAG_NAME, Configuration.TAG_NUMBER, Configuration.TAG_ID_MEJA},
+                new int[]{R.id.name, R.id.number, R.id.id_meja});
         listView.setAdapter(adapter);
     }
 

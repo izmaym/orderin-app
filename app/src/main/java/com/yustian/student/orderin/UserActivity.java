@@ -10,7 +10,6 @@ import android.view.MenuItem;
 //implement the interface OnNavigationItemSelectedListener in your activity class
 public class UserActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +23,6 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
         navigation.setOnNavigationItemSelectedListener(this);
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
@@ -35,7 +33,7 @@ public class UserActivity extends AppCompatActivity implements BottomNavigationV
                 break;
 
             case R.id.navigation_dashboard:
-                fragment = new DashboardFragment();
+                fragment = new MenuFragment();
                 break;
 
             case R.id.navigation_order:
