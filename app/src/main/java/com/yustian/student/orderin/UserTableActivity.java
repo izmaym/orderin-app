@@ -112,18 +112,6 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
         gj.execute();
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long
-            id) {
-        Intent intent = new Intent(this, UserMenuActivity.class);
-        HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        empId = map.get(Configuration.TAG_ID_TABLE).toString();
-        intent.putExtra(Configuration.TAG_ID_TABLE, empId);
-        intent.putExtra(Configuration.TAG_ID_TRANSACTION, empId+id+acak);
-        addContact();
-        startActivity(intent);
-    }
-
     private void addContact() {
         class AddContact extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
@@ -152,6 +140,18 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
         }
         AddContact ae = new AddContact();
         ae.execute();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long
+            id) {
+        Intent intent = new Intent(this, UserMenuActivity.class);
+        HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
+        empId = map.get(Configuration.TAG_ID_TABLE).toString();
+        intent.putExtra(Configuration.TAG_ID_TABLE, empId);
+        intent.putExtra(Configuration.TAG_ID_TRANSACTION, empId+id+acak);
+        addContact();
+        startActivity(intent);
     }
 }
 

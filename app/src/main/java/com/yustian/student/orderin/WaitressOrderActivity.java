@@ -121,7 +121,7 @@ public class WaitressOrderActivity extends AppCompatActivity implements android.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, UserDetailActivity.class);
+        Intent intent = new Intent(this, WaitressDetailActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         String empId = map.get(Configuration.TAG_ID).toString();
         intent.putExtra(Configuration.CON_ID, empId);

@@ -49,8 +49,6 @@
                     app:ci_height="7dp"
                     app:ci_width="7dp" />
 
-                <include layout="@layout/food_detail_toolbar" />
-
             </FrameLayout>
 
             <LinearLayout
