@@ -2,10 +2,10 @@ package com.yustian.student.orderin;
 
 public class Configuration {
     // Offline
-    // public static final String URL = "http://192.168.43.94/orderin/";
+    public static final String URL = "http://192.168.43.94/orderin/";
 
     // Online
-    public static final String URL = "http://orderin2.000webhostapp.com/";
+    // public static final String URL = "http://orderin2.000webhostapp.com/";
 
     // API Menu
     public static final String URL_GET_ALL = URL + "tampilsemuamenu.php";

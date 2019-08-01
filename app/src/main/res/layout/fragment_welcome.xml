@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg"
-    tools:context=".WelcomeActivity">
+    android:background="@drawable/loginbg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,19 +92,5 @@
             android:text="Cari"
             android:textColor="#ffffff"
             android:textSize="14.4sp" />
-
-        <Button
-            android:id="@+id/btnMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22.1dp"
-            android:layout_marginTop="22.1dp"
-            android:layout_marginRight="21.1dp"
-            android:background="@color/colorAccent"
-            android:gravity="center_horizontal"
-            android:padding="16dp"
-            android:text="Lihat Menu"
-            android:textColor="#ffffff"
-            android:textSize="14.4sp" />
     </LinearLayout>
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -24,7 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.fragment_welcome);
 
         btnSearch = (Button)findViewById(R.id.btnSearch);
         btnMenu = (Button)findViewById(R.id.btnMenu);
@@ -53,7 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
             });
             btnMenu.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                        Intent i = new Intent(getApplicationContext(), UserActivity.class);
+                        Intent i = new Intent(getApplicationContext(), UserMenuActivity.class);
                         i.putExtra(TAG_ID, id);
                         i.putExtra(TAG_USERNAME, username);
                         startActivity(i);

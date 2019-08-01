@@ -2,11 +2,14 @@
 <resources>
     <color name="colorPrimary">#e74c3c</color>
     <color name="colorPrimaryDark">#455A64</color>
-    <color name="colorAccent">#FF5722</color>
+    <color name="colorAccent">#D22532</color>
     <color name="colorSubTitle">#757575</color>
 
     <color name="colorNavigationIcon">#dae9f6</color>
     <color name="colorNavigationText">#ffffff</color>
 
     <color name="colorRed">#f00</color>
+
+    <color name="colorNavIcon">#dae9f6</color>
+    <color name="colorNavText">#01294b</color>
 </resources>

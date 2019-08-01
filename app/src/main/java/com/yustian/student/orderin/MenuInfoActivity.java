@@ -17,9 +17,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class MenuInfoActivity extends AppCompatActivity implements
-        View.OnClickListener{
-
+public class MenuInfoActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView editTextName;
     private TextView editTextNumber;
 
@@ -37,6 +35,7 @@ public class MenuInfoActivity extends AppCompatActivity implements
         id = intent.getStringExtra(Configuration.CON_ID);
         meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
         transaction = intent.getStringExtra(Configuration.TAG_ID_TRANSACTION);
+        Toast.makeText(MenuInfoActivity.this,id+" "+meja+" "+transaction,Toast.LENGTH_LONG).show();
 
         editTextName = (TextView) findViewById(R.id.editTextName);
         editTextNumber = (TextView) findViewById(R.id.editTextNumber);

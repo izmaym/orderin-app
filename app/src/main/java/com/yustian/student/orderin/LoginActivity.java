@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
                 startActivity(intent);
             } else {
-                Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_USERNAME, username);
                 finish();
@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
     private void checkLogin(final String username, final String password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("Logging in ...");
+        pDialog.setMessage("Loading");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -187,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             // Memanggil user activity
-                            Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             intent.putExtra(TAG_ID, id);
                             intent.putExtra(TAG_USERNAME, username);
                             finish();

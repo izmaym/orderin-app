@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+    <include layout="@layout/order_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#33ffffff"
+            android:layout_marginLeft="34.6dp"
+            android:layout_marginRight="33.6dp"
+            android:layout_marginTop="426.5dp"/>
+
+        <TextView
+            android:id="@+id/txt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="433.6dp"
+            android:background="#00000000"
+            android:hint="Total Harga :"
+            android:layout_marginLeft="34.6dp"
+            android:layout_marginRight="33.6dp"
+            android:textColorHint="#000"
+            android:inputType="textPassword"
+            android:textColor="#000"
+            android:textSize="14.4sp"/>
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="433.6dp"
+            android:background="#00000000"
+            android:hint="Total Harga"
+            android:text="Total Harga"
+            android:layout_marginLeft="234.6dp"
+            android:layout_marginRight="33.6dp"
+            android:textColorHint="#000"
+            android:textColor="#000"
+            android:textSize="14.4sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#33ffffff"
+            android:layout_marginLeft="34.6dp"
+            android:layout_marginRight="33.6dp"
+            android:layout_marginTop="6.5dp"/>
+
+    </LinearLayout>
+</LinearLayout>

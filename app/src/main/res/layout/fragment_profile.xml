@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="60dp"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="233dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="233dp"
+                    android:background="@drawable/gradient"
+                    android:orientation="vertical"/>
+
+                <include layout="@layout/nevigationtoolbar"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="bottom">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="59.5dp"
+                        android:layout_height="59.5dp"
+                        android:src="@drawable/men5"
+                        android:layout_marginLeft="22.1dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="16.3dp">
+
+                        <TextView
+                            android:id="@+id/txt_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Erik Walters"
+                            android:textSize="23sp"
+                            android:textColor="#ffffff"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:layout_marginTop="16.3dp"
+                android:background="#ffffff">
+
+                <ImageView
+                    android:id="@+id/imagetable"
+                    android:layout_width="42.3dp"
+                    android:layout_height="42.3dp"
+                    android:src="@drawable/orders_history"
+                    android:layout_marginLeft="16dp"/>
+
+                <TextView
+                    android:id="@+id/txt_table"
+                    android:layout_width="310dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="9.5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Meja"
+                    android:textColor="#4a4a4a"
+                    android:textSize="14.4sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:layout_marginTop="16.3dp"
+                android:background="#ffffff">
+
+                <ImageView
+                    android:id="@+id/imgLogout"
+                    android:layout_width="42.3dp"
+                    android:layout_height="42.3dp"
+                    android:src="@drawable/orders_history"
+                    android:layout_marginLeft="16dp"/>
+
+                <TextView
+                    android:id="@+id/txt_logout"
+                    android:layout_width="310dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="9.5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Logout"
+                    android:textColor="#4a4a4a"
+                    android:textSize="14.4sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

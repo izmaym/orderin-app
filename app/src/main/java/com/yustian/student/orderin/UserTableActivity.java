@@ -115,7 +115,7 @@ public class UserTableActivity extends AppCompatActivity implements ListView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long
             id) {
-        Intent intent = new Intent(this, UserActivity.class);
+        Intent intent = new Intent(this, UserMenuActivity.class);
         HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
         empId = map.get(Configuration.TAG_ID_TABLE).toString();
         intent.putExtra(Configuration.TAG_ID_TABLE, empId);

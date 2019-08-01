@@ -103,7 +103,7 @@
             android:layout_marginLeft="34.6dp"
             android:layout_marginRight="33.6dp"
             android:layout_marginTop="53.8dp"
-            android:background="@drawable/rectangle"
+            android:background="@color/colorAccent"
             android:gravity="center_horizontal"
             android:padding="16.4dp"
             android:text="Register"

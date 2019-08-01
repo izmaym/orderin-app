@@ -112,7 +112,7 @@ public class UserDetailActivity extends AppCompatActivity implements
                             public void onClick(DialogInterface arg0, int arg1) {
                                 deleteContact();
                                 startActivity(new
-                                        Intent(UserDetailActivity.this, WaitressActivity.class));
+                                        Intent(UserDetailActivity.this, WaitressOrderActivity.class));
                             }
                         });
         alertDialogBuilder.setNegativeButton("Tidak",

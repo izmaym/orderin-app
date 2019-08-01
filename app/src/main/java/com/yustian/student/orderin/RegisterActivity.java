@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void checkRegister(final String username, final String password, final String confirm_password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-        pDialog.setMessage("RegisterActivity ...");
+        pDialog.setMessage("Loading");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
