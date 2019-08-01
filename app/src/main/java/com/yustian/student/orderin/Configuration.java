@@ -21,7 +21,6 @@ public class Configuration {
     public static final String URL_ORDER = URL + "tambahpesanan.php";
     public static final String URL_DELETE_ORD = URL + "hapuspesanan.php?id=";
 
-
     // API User
     public static final String URL_GET_ALL_USER = URL + "tampilsemuauser.php";
     public static final String URL_DELETE_USER = URL + "hapususer.php";

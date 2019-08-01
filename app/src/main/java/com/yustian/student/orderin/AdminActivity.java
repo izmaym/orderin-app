@@ -15,15 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class AdminActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class AdminActivity extends AppCompatActivity {
     String id;
     SharedPreferences sharedpreferences;
     String username;
+    Button btnLogout, btnMenu, btnTable, btnUser;
 
     public static final String TAG_ID = "id";
     public static final String TAG_USERNAME = "username";
@@ -32,101 +33,61 @@ public class AdminActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         // Session
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
         id = sharedpreferences.getString(TAG_ID, null);
         username = sharedpreferences.getString(TAG_USERNAME, null);
 
-        // Mengambil username
-        View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.txt_username);
-        navUsername.setText(username);
-    }
+        btnLogout = (Button) findViewById(R.id.btnLogout);
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+        btnLogout.setOnClickListener(new View.OnClickListener() {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.admin, menu);
-        return true;
-    }
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putBoolean(LoginActivity.session_status, false);
+                editor.putString(TAG_ID, null);
+                editor.putString(TAG_USERNAME, null);
+                editor.commit();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+                Intent intent = new Intent(AdminActivity.this, LoginActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        btnMenu = (Button) findViewById(R.id.btnMenu);
 
-        return super.onOptionsItemSelected(item);
-    }
+        btnMenu.setOnClickListener(new View.OnClickListener() {
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, AdminMenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        if (id == R.id.nav_camera) {
-            Intent intent = new Intent(AdminActivity.this, AdminMenuActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        btnTable = (Button) findViewById(R.id.btnTable);
 
-        } else if (id == R.id.nav_slideshow) {
-            Intent intent = new Intent(AdminActivity.this, AdminTableActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_manage) {
-            Intent intent = new Intent(AdminActivity.this, AdminUserActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_logout) {
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putBoolean(LoginActivity.session_status, false);
-            editor.putString(TAG_ID, null);
-            editor.putString(TAG_USERNAME, null);
-            editor.commit();
+        btnTable.setOnClickListener(new View.OnClickListener() {
 
-            Intent intent = new Intent(AdminActivity.this, LoginActivity.class);
-            finish();
-            startActivity(intent);
-        }
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, AdminTableActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        btnUser = (Button) findViewById(R.id.btnUser);
+
+        btnUser.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this, AdminUserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
