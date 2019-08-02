@@ -35,7 +35,6 @@ public class MenuInfoActivity extends AppCompatActivity implements View.OnClickL
         id = intent.getStringExtra(Configuration.CON_ID);
         meja = intent.getStringExtra(Configuration.TAG_ID_TABLE);
         transaction = intent.getStringExtra(Configuration.TAG_ID_TRANSACTION);
-        Toast.makeText(MenuInfoActivity.this,id+" "+meja+" "+transaction,Toast.LENGTH_LONG).show();
 
         editTextName = (TextView) findViewById(R.id.editTextName);
         editTextNumber = (TextView) findViewById(R.id.editTextNumber);

@@ -44,7 +44,6 @@ public class AdminCreateMenuActivity extends AppCompatActivity implements View.O
         final String number = editTextNumber.getText().toString().trim();
         final String stok = editTextStok.getText().toString().trim();
 
-
         class AddContact extends AsyncTask<Void,Void,String> {
             ProgressDialog loading;
             @Override

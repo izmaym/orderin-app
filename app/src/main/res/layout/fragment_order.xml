@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UserOrderActivity">
 
-    <include layout="@layout/order_toolbar"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -42,11 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="433.6dp"
         android:background="#00000000"
-        android:hint="Total Harga :"
         android:layout_marginLeft="34.6dp"
         android:layout_marginRight="33.6dp"
-        android:textColorHint="#000"
-        android:inputType="textPassword"
         android:textColor="#000"
         android:textSize="14.4sp"/>
 
@@ -56,11 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="433.6dp"
         android:background="#00000000"
-        android:hint="Total Harga"
-        android:text="Total Harga"
         android:layout_marginLeft="234.6dp"
         android:layout_marginRight="33.6dp"
-        android:textColorHint="#000"
         android:textColor="#000"
         android:textSize="14.4sp"/>
 

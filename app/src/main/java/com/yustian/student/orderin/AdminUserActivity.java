@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AdminUserActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class AdminUserActivity extends AppCompatActivity {
     private ListView listView;
     private String JSON_STRING;
 
@@ -39,7 +39,6 @@ public class AdminUserActivity extends AppCompatActivity implements ListView.OnI
         sharedpreferences = getSharedPreferences(LoginActivity.my_shared_preferences, Context.MODE_PRIVATE);
 
         listView = (ListView) findViewById(R.id.listView);
-        listView.setOnItemClickListener(this);
         getJSON();
     }
 
@@ -93,15 +92,5 @@ public class AdminUserActivity extends AppCompatActivity implements ListView.OnI
         }
         GetJSON gj = new GetJSON();
         gj.execute();
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long
-            id) {
-        Intent intent = new Intent(this, AdminDetailMenuActivity.class);
-        HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Configuration.TAG_ID).toString();
-        intent.putExtra(Configuration.CON_ID, empId);
-        startActivity(intent);
     }
 }

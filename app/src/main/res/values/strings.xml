@@ -32,4 +32,5 @@
     // Table
     <string name="id_meja">ID Meja</string>
     <string name="no_meja">No Meja</string>
+    <string name="title_activity_admin_menu2">AdminMenuActivity2</string>
 </resources>
