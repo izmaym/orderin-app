@@ -36,7 +36,6 @@ public class AdminDetailMenuActivity extends AppCompatActivity implements View.O
         Intent intent = getIntent();
 
         id = intent.getStringExtra(Configuration.CON_ID);
-        Toast.makeText(getApplicationContext() ,id, Toast.LENGTH_LONG).show();
         editTextKategori = (EditText) findViewById(R.id.editTextKategori);
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextNumber = (EditText) findViewById(R.id.editTextNumber);

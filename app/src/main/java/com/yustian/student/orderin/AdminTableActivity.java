@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AdminTableActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+public class AdminTableActivity extends AppCompatActivity {
     private ListView listView;
     private String JSON_STRING;
 
@@ -46,7 +46,6 @@ public class AdminTableActivity extends AppCompatActivity implements ListView.On
 
 
         listView = (ListView) findViewById(R.id.listView);
-        listView.setOnItemClickListener(this);
         getJSON();
     }
 
@@ -60,10 +59,8 @@ public class AdminTableActivity extends AppCompatActivity implements ListView.On
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
                 String id_table = jo.getString(Configuration.TAG_ID_TABLE);
-                String no_table = jo.getString(Configuration.TAG_NUMBER_TABLE);
                 HashMap<String,String> contacts = new HashMap<>();
                 contacts.put(Configuration.TAG_ID_TABLE,id_table);
-                contacts.put(Configuration.TAG_NUMBER_TABLE,no_table);
                 list.add(contacts);
             }
         } catch (JSONException e) {
@@ -71,8 +68,8 @@ public class AdminTableActivity extends AppCompatActivity implements ListView.On
         }
         ListAdapter adapter = new SimpleAdapter(
                 AdminTableActivity.this, list, R.layout.activity_admin_table_list_view,
-                new String[]{Configuration.TAG_ID_TABLE, Configuration.TAG_NUMBER_TABLE},
-                new int[]{R.id.id_table, R.id.no_table});
+                new String[]{Configuration.TAG_ID_TABLE},
+                new int[]{R.id.id_table});
         listView.setAdapter(adapter);
     }
 
@@ -100,16 +97,6 @@ public class AdminTableActivity extends AppCompatActivity implements ListView.On
         }
         GetJSON gj = new GetJSON();
         gj.execute();
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long
-            id) {
-        Intent intent = new Intent(this, AdminDetailMenuActivity.class);
-        HashMap<String,String> map =(HashMap)parent.getItemAtPosition(position);
-        String empId = map.get(Configuration.TAG_ID).toString();
-        intent.putExtra(Configuration.CON_ID, empId);
-        startActivity(intent);
     }
 }
 
